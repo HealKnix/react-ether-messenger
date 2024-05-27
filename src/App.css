@@ -1,0 +1,14 @@
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo__accent-logo {
+  color: var(--accent-color);
+}
