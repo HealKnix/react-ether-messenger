@@ -1,12 +1,13 @@
 .home-nav > ul {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
 }
 
 .home-nav > ul > li > a {
   color: color-mix(in srgb, var(--text-primary-color) 25%, transparent 0%);
+  font-family: SFProTextBold;
   font-size: 28px;
-  font-weight: bold;
 
   transition: color 0.15s ease-in-out;
 }
@@ -17,5 +18,5 @@
 
 .home-nav > ul > li > a.active {
   color: var(--text-primary-color);
-  font-weight: 800;
+  font-family: SFProTextBlack;
 }
