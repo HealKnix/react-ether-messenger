@@ -1,0 +1,29 @@
+@import url('../../index.css');
+
+.avatar-text__wrapper {
+  display: flex;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+.avatar-img {
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.avatar-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar-text__name {
+  font-weight: 500;
+  color: var(--text-primary-color);
+}
+
+.avatar-text__description {
+  color: var(--text-additional-color);
+}

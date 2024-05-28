@@ -1,48 +1,16 @@
 import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import HomeNavigation from "./HomeNavigation/HomeNavigation";
 import "./Home.css";
+import HomeAsideContent from "./HomeAsideContent/HomeAsideContent";
 
 const Home: FC = () => {
-  const location = useLocation();
-
   return (
     <>
       <div className="home__wrapper">
-        <div className="home-nav">
-          <ul>
-            <li>
-              <Link
-                to="home?filter=main"
-                className={
-                  "" == location.search || "?filter=main" == location.search
-                    ? "active"
-                    : ""
-                }
-              >
-                Главная
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="home?filter=subscribes"
-                className={
-                  "?filter=subscribes" == location.search ? "active" : ""
-                }
-              >
-                Подписки
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="home?filter=research"
-                className={
-                  "?filter=research" == location.search ? "active" : ""
-                }
-              >
-                Исследовать
-              </Link>
-            </li>
-          </ul>
+        <HomeNavigation />
+        <div className="home-content__wrapper">
+          <div className="posts__wrapper"></div>
+          <HomeAsideContent />
         </div>
       </div>
     </>

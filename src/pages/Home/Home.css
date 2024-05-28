@@ -1,26 +1,19 @@
+@import url('../../index.css');
+
 .home__wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 50px;
   padding: 60px 80px;
 }
 
-.home-nav > ul {
+.home-content__wrapper {
   display: flex;
-  gap: 32px;
+  border: 1px solid black;
 }
 
-.home-nav > ul > li > a {
-  color: color-mix(in srgb, var(--text-primary-color) 25%, transparent 0%);
-  font-size: 28px;
-  font-weight: bold;
-
-  transition: color 0.15s ease-in-out;
-}
-
-.home-nav > ul > li > a:hover {
-  color: color-mix(in srgb, var(--text-primary-color) 50%, transparent 0%);
-}
-
-.home-nav > ul > li > a.active {
-  color: var(--text-primary-color);
+.posts__wrapper {
+  width: 100%;
+  border: 1px solid red;
 }
