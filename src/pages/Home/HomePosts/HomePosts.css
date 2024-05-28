@@ -51,12 +51,12 @@
 }
 
 .post-functional-like.active {
-  color: #EC486D;
+  color: var(--red);
 }
 
 .post-functional-like.active > svg {
-  stroke: #EC486D;
-  fill: #EC486D;
+  stroke: var(--red);
+  fill: var(--red);
 }
 
 .post-functional-comment.active {

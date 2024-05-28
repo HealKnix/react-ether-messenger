@@ -3,7 +3,7 @@ import { User } from "./User";
 export interface Post {
   id: number;
   text: string;
-  image?: string | null;
+  images?: string[] | null;
   likeCount: number;
   commentCount: number;
   createdBy: User;

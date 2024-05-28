@@ -8,7 +8,7 @@ export const postList: Post[] = [
   {
     id: 0,
     text: "Смотрите какие красивые цветочки!!",
-    image: Post1,
+    images: [Post1],
     likeCount: 21,
     commentCount: 4,
     createdBy: userList[0],
@@ -27,7 +27,7 @@ export const postList: Post[] = [
   {
     id: 2,
     text: "Фотография из моего последнего похода ✌️",
-    image: Post2,
+    images: [Post2],
     likeCount: 58,
     commentCount: 5,
     createdBy: userList[2],

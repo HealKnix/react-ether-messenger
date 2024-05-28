@@ -19,8 +19,10 @@ const HomePosts: FC = () => {
               name={post.createdBy.firstName + " " + post.createdBy.lastName}
               description={getPastTimeString(post.dateCreated)}
             />
-            {post.image ? (
-              <img src={post.image} alt="post" className="post-image" />
+            {post.images ? (
+              post.images?.map((image) => (
+                <img src={image} alt="post" className="post-image" />
+              ))
             ) : (
               <></>
             )}
