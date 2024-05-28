@@ -10,10 +10,8 @@
 
 .home-content__wrapper {
   display: flex;
-  border: 1px solid black;
 }
 
 .posts__wrapper {
   width: 100%;
-  border: 1px solid red;
 }

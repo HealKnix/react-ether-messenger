@@ -1,7 +1,7 @@
 import { FC } from "react";
 import HomeNavigation from "./HomeNavigation/HomeNavigation";
-import "./Home.css";
 import HomeAsideContent from "./HomeAsideContent/HomeAsideContent";
+import "./Home.css";
 
 const Home: FC = () => {
   return (

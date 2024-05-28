@@ -1,6 +1,7 @@
 import { FC } from "react";
 import AvatarText from "../../../components/AvatarText/AvatarText";
 import Card from "../../../components/Card/Card";
+import "./HomeAsideContent.css";
 
 const HomeAsideContent: FC = () => {
   return (
