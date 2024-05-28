@@ -15,68 +15,72 @@ const SidebarMenu: FC = () => {
   return (
     <>
       <div className="side-bar-menu">
-        <Logo />
+        <div className="sticky-menu">
+          <Logo />
 
-        <ul className="side-bar-menu__nav">
-          <li>
-            <Link
-              to="/profile"
-              className={"/profile" == location.pathname ? "active" : ""}
-            >
-              <ProfileSVG />
-              Профиль
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/home"
-              className={
-                "/" == location.pathname || "/home" == location.pathname
-                  ? "active"
-                  : ""
-              }
-            >
-              <HomeSVG />
-              Главная
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/messenger"
-              className={"/messenger" == location.pathname ? "active" : ""}
-            >
-              <MessageSVG />
-              Мессенджер
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/search"
-              className={"/search" == location.pathname ? "active" : ""}
-            >
-              <SearchSVG />
-              Поиск
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/notifications"
-              className={"/notifications" == location.pathname ? "active" : ""}
-            >
-              <BellSVG />
-              Уведомления
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/saved-posts"
-              className={"/saved-posts" == location.pathname ? "active" : ""}
-            >
-              <BookmarkSVG />
-              Сохранённые посты
-            </Link>
-          </li>
-        </ul>
+          <ul className="side-bar-menu__nav">
+            <li>
+              <Link
+                to="/profile"
+                className={"/profile" == location.pathname ? "active" : ""}
+              >
+                <ProfileSVG />
+                Профиль
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/home"
+                className={
+                  "/" == location.pathname || "/home" == location.pathname
+                    ? "active"
+                    : ""
+                }
+              >
+                <HomeSVG />
+                Главная
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/messenger"
+                className={"/messenger" == location.pathname ? "active" : ""}
+              >
+                <MessageSVG />
+                Мессенджер
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/search"
+                className={"/search" == location.pathname ? "active" : ""}
+              >
+                <SearchSVG />
+                Поиск
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/notifications"
+                className={
+                  "/notifications" == location.pathname ? "active" : ""
+                }
+              >
+                <BellSVG />
+                Уведомления
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/saved-posts"
+                className={"/saved-posts" == location.pathname ? "active" : ""}
+              >
+                <BookmarkSVG />
+                Сохранённые посты
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
