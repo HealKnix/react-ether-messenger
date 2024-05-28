@@ -1,0 +1,20 @@
+.logo {
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 5px 0;
+  color: var(--text-primary-color);
+
+  scale: 1;
+  transition: scale 0.15s ease-in-out;
+}
+
+.logo:hover {
+  color: var(--text-primary-color);
+
+  scale: 1.05;
+}
+
+.logo__accent-logo {
+  color: var(--accent-color);
+}
