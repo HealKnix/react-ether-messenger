@@ -1,9 +1,15 @@
 @import url('../../index.css');
 
 .avatar-text__wrapper {
+  cursor: pointer;
   display: flex;
   gap: 16px;
-  padding: 6px 0;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.avatar-text__wrapper:hover {
+  background-color: var(--text-accent-color);
 }
 
 .avatar-img {

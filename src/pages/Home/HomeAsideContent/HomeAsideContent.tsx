@@ -43,12 +43,12 @@ const HomeAsideContent: FC = () => {
           <AvatarText
             img="/src/assets/images/avatars/communities/community2.png"
             name="Photographers of SF"
-            description="13.2k участников"
+            description="2k участников"
           />
           <AvatarText
             img="/src/assets/images/avatars/communities/community3.png"
             name="Marina crew"
-            description="13.2k участников"
+            description="125 участников"
           />
         </Card>
       </div>
