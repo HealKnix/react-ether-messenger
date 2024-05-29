@@ -18,10 +18,14 @@ const SidebarMenu: FC = () => {
               .filter((route) => route.show)
               .sort((a, b) => a.order - b.order)
               .map((route) => (
-                <li key={route.to}>
+                <li key={route.path}>
                   <Link
-                    to={route.to}
-                    className={route.to == location.pathname ? "active" : ""}
+                    to={route.path}
+                    className={
+                      route.path == location.pathname
+                        ? `active nav-${route.name}`
+                        : `nav-${route.name}`
+                    }
                   >
                     {<route.icon />}
                     <span>{route.title}</span>

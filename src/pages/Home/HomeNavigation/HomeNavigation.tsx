@@ -11,7 +11,7 @@ const HomeNavigation: FC = () => {
         <ul>
           <li>
             <Link
-              to="home?filter=for-you"
+              to="/home?filter=for-you"
               className={
                 "" == location.search || "?filter=for-you" == location.search
                   ? "active"
@@ -23,7 +23,7 @@ const HomeNavigation: FC = () => {
           </li>
           <li>
             <Link
-              to="home?filter=subscribes"
+              to="/home?filter=subscribes"
               className={
                 "?filter=subscribes" == location.search ? "active" : ""
               }
@@ -33,7 +33,7 @@ const HomeNavigation: FC = () => {
           </li>
           <li>
             <Link
-              to="home?filter=favorites"
+              to="/home?filter=favorites"
               className={"?filter=favorites" == location.search ? "active" : ""}
             >
               Избранное

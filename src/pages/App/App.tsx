@@ -12,9 +12,9 @@ const App: FC = () => {
         <Routes>
           {router.map((route) => (
             <Route
-              path={route.to}
+              path={route.path}
               element={<route.component />}
-              key={route.to}
+              key={route.path}
             />
           ))}
         </Routes>

@@ -13,7 +13,7 @@ import BellSVG from "../components/SVG/BellSVG";
 import BookmarkSVG from "../components/SVG/BookmarkSVG";
 
 interface Router {
-  to: string;
+  path: string;
   name: string;
   title: string;
   component: FC;
@@ -24,7 +24,7 @@ interface Router {
 
 export const router: Router[] = [
   {
-    to: "/",
+    path: "/",
     name: "home",
     title: "Главная",
     component: Home,
@@ -33,7 +33,7 @@ export const router: Router[] = [
     show: true,
   },
   {
-    to: "/home",
+    path: "/home",
     name: "home",
     title: "Главная",
     component: Home,
@@ -42,7 +42,7 @@ export const router: Router[] = [
     show: false,
   },
   {
-    to: "/profile",
+    path: "/profile",
     name: "profile",
     title: "Профиль",
     component: Profile,
@@ -51,7 +51,7 @@ export const router: Router[] = [
     show: true,
   },
   {
-    to: "/messenger",
+    path: "/messenger",
     name: "messenger",
     title: "Мессенджер",
     component: Messenger,
@@ -60,7 +60,7 @@ export const router: Router[] = [
     show: true,
   },
   {
-    to: "/search",
+    path: "/search",
     name: "search",
     title: "Поиск",
     component: Search,
@@ -69,7 +69,7 @@ export const router: Router[] = [
     show: true,
   },
   {
-    to: "/notifications",
+    path: "/notifications",
     name: "notifications",
     title: "Уведомления",
     component: Notifications,
@@ -78,7 +78,7 @@ export const router: Router[] = [
     show: true,
   },
   {
-    to: "/saved-posts",
+    path: "/saved-posts",
     name: "saved-posts",
     title: "Сохранённые посты",
     component: SavedPosts,
