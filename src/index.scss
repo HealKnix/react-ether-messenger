@@ -63,16 +63,20 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--black);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.05s ease-in-out;
 }
 button:hover {
   border-color: #646cff;
 }
+button:active {
+  scale: 0.95;
+}
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--white);
+  outline-offset: -4px;
 }
 
 /* @media (prefers-color-scheme: dark) {
