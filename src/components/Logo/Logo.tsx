@@ -1,6 +1,6 @@
-import { FC } from "react";
-import "./Logo.css";
-import { Link } from "react-router-dom";
+import { FC } from 'react';
+import './Logo.scss';
+import { Link } from 'react-router-dom';
 
 const Logo: FC = () => {
   return (

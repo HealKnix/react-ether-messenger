@@ -1,12 +1,12 @@
-import AvatarText from "../../../components/AvatarText/AvatarText";
+import AvatarText from '../../../components/AvatarText/AvatarText';
 
-import LikeSVG from "../../../components/SVG/LikeSVG";
-import CommentSVG from "../../../components/SVG/CommentSVG";
-import { FC } from "react";
+import LikeSVG from '../../../components/SVG/LikeSVG';
+import CommentSVG from '../../../components/SVG/CommentSVG';
+import { FC } from 'react';
 
-import "./HomePosts.css";
-import { postList } from "../../../models/mock/post";
-import { getPastTimeString } from "../../../utils/getPastTimeString";
+import './HomePosts.scss';
+import { postList } from '../../../models/mock/post';
+import { getPastTimeString } from '../../../utils/getPastTimeString';
 
 const HomePosts: FC = () => {
   return (
@@ -16,7 +16,7 @@ const HomePosts: FC = () => {
           <div className="post" key={post.id}>
             <AvatarText
               img={post.createdBy.avatar}
-              name={post.createdBy.firstName + " " + post.createdBy.lastName}
+              name={post.createdBy.firstName + ' ' + post.createdBy.lastName}
               description={getPastTimeString(post.dateCreated)}
             />
             {post.images ? (

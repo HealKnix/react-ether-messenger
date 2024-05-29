@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./HomeNavigation.css";
+import { FC } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './HomeNavigation.scss';
 
 const HomeNavigation: FC = () => {
   const location = useLocation();
@@ -13,9 +13,9 @@ const HomeNavigation: FC = () => {
             <Link
               to="/home?filter=for-you"
               className={
-                "" == location.search || "?filter=for-you" == location.search
-                  ? "active"
-                  : ""
+                '' == location.search || '?filter=for-you' == location.search
+                  ? 'active'
+                  : ''
               }
             >
               Для вас
@@ -25,7 +25,7 @@ const HomeNavigation: FC = () => {
             <Link
               to="/home?filter=subscribes"
               className={
-                "?filter=subscribes" == location.search ? "active" : ""
+                '?filter=subscribes' == location.search ? 'active' : ''
               }
             >
               Подписки
@@ -34,7 +34,7 @@ const HomeNavigation: FC = () => {
           <li>
             <Link
               to="/home?filter=favorites"
-              className={"?filter=favorites" == location.search ? "active" : ""}
+              className={'?filter=favorites' == location.search ? 'active' : ''}
             >
               Избранное
             </Link>

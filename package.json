@@ -5,14 +5,22 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
+    "type-check": "tsc --build --force",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build-only": "vite build",
+    "prettier": "prettier --ignore-unknown --write .",
+    "eslint": "eslint **/*.{tsx,ts,js}",
+    "eslint:fix": "eslint **/*.{tsx,ts,js} --fix",
+    "lint": "npm run prettier && npm run eslint && npm run type-check"
   },
   "dependencies": {
+    "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "react-tsc": "^15.3.2-rev5",
+    "sass": "^1.77.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

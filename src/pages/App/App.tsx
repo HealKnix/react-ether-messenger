@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SidebarMenu from "../../components/SidebarMenu/SidebarMenu";
-import "./App.css";
-import { router } from "../../routes";
+import { FC } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SidebarMenu from '../../components/SidebarMenu/SidebarMenu';
+import { router } from '../../routes';
+import './App.scss';
 
 const App: FC = () => {
   return (

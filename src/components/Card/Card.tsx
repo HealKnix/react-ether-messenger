@@ -1,5 +1,5 @@
-import { FC } from "react";
-import "./Card.css";
+import { FC } from 'react';
+import './Card.scss';
 
 interface CardProps {
   title: string;

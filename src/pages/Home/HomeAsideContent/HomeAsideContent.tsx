@@ -1,18 +1,18 @@
-import { FC } from "react";
-import AvatarText from "../../../components/AvatarText/AvatarText";
-import Card from "../../../components/Card/Card";
+import { FC } from 'react';
+import AvatarText from '../../../components/AvatarText/AvatarText';
+import Card from '../../../components/Card/Card';
 
-import UserAvatar1 from "../../../assets/images/avatars/users/user1.png";
-import UserAvatar2 from "../../../assets/images/avatars/users/user2.png";
-import UserAvatar3 from "../../../assets/images/avatars/users/user3.png";
-import UserAvatar4 from "../../../assets/images/avatars/users/user4.png";
-import UserAvatar5 from "../../../assets/images/avatars/users/user5.png";
+import UserAvatar1 from '../../../assets/images/avatars/users/user1.png';
+import UserAvatar2 from '../../../assets/images/avatars/users/user2.png';
+import UserAvatar3 from '../../../assets/images/avatars/users/user3.png';
+import UserAvatar4 from '../../../assets/images/avatars/users/user4.png';
+import UserAvatar5 from '../../../assets/images/avatars/users/user5.png';
 
-import CommunityAvatar1 from "../../../assets/images/avatars/communities/community1.png";
-import CommunityAvatar2 from "../../../assets/images/avatars/communities/community2.png";
-import CommunityAvatar3 from "../../../assets/images/avatars/communities/community3.png";
+import CommunityAvatar1 from '../../../assets/images/avatars/communities/community1.png';
+import CommunityAvatar2 from '../../../assets/images/avatars/communities/community2.png';
+import CommunityAvatar3 from '../../../assets/images/avatars/communities/community3.png';
 
-import "./HomeAsideContent.css";
+import './HomeAsideContent.scss';
 
 const HomeAsideContent: FC = () => {
   return (
