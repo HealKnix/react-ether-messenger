@@ -57,6 +57,9 @@
   .side-bar-menu {
     width: 75px;
   }
+  .sticky-menu {
+    gap: 4px;
+  }
   .sticky-menu > .logo > .desktop-logo {
     display: none;
   }
