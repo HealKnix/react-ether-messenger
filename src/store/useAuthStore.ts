@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { User } from '../models/User';
+import { userList } from '../models/mock/user';
 
 interface AuthState {
   user: User | null;
@@ -10,7 +11,7 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>()((set, state) => ({
-  user: null,
+  user: userList[0],
   setUser: (user) => set({ user }),
   isAuth: () => Boolean(state().user),
   isUser: () => Boolean(state().user?.role === 'user'),
