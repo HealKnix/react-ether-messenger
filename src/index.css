@@ -31,10 +31,10 @@
   background-color: var(--accent-color);
 }
 
-html, body {
+/* html, body {
   width: 100dvw;
   overflow-x: hidden;
-}
+} */
 
 a {
   display: block;

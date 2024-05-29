@@ -67,3 +67,15 @@
   stroke: var(--accent-color);
   fill: var(--text-accent-color);
 }
+
+@media (width <= 921px) {
+  .post-description {
+    font-size: 16px;
+  }
+}
+
+@media (width <= 540px) {
+  .post-description {
+    font-size: 14px;
+  }
+}

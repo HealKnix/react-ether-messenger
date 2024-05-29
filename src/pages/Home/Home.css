@@ -9,6 +9,18 @@
 .home-content__wrapper {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   gap: 35px;
+}
+
+@media (width <= 921px) {
+  .home__wrapper {
+    padding: 30px 40px;
+  }
+}
+
+@media (width <= 540px) {
+  .home__wrapper {
+    padding: 30px 10px;
+  }
 }

@@ -25,7 +25,7 @@ const SidebarMenu: FC = () => {
                 className={"/profile" == location.pathname ? "active" : ""}
               >
                 <ProfileSVG />
-                Профиль
+                <span>Профиль</span>
               </Link>
             </li>
             <li>
@@ -38,7 +38,7 @@ const SidebarMenu: FC = () => {
                 }
               >
                 <HomeSVG />
-                Главная
+                <span>Главная</span>
               </Link>
             </li>
             <li>
@@ -47,7 +47,7 @@ const SidebarMenu: FC = () => {
                 className={"/messenger" == location.pathname ? "active" : ""}
               >
                 <MessageSVG />
-                Мессенджер
+                <span>Мессенджер</span>
               </Link>
             </li>
             <li>
@@ -56,7 +56,7 @@ const SidebarMenu: FC = () => {
                 className={"/search" == location.pathname ? "active" : ""}
               >
                 <SearchSVG />
-                Поиск
+                <span>Поиск</span>
               </Link>
             </li>
             <li>
@@ -67,7 +67,7 @@ const SidebarMenu: FC = () => {
                 }
               >
                 <BellSVG />
-                Уведомления
+                <span>Уведомления</span>
               </Link>
             </li>
             <li>
@@ -76,7 +76,7 @@ const SidebarMenu: FC = () => {
                 className={"/saved-posts" == location.pathname ? "active" : ""}
               >
                 <BookmarkSVG />
-                Сохранённые посты
+                <span>Сохранённые посты</span>
               </Link>
             </li>
           </ul>

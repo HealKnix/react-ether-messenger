@@ -3,3 +3,15 @@
   flex-direction: column;
   gap: 35px;
 }
+
+@media (width <= 1291px) {
+  .aside-content__wrapper {
+    flex-direction: row;
+  }
+}
+
+@media (width <= 921px) {
+  .aside-content__wrapper {
+    flex-direction: column;
+  }
+}
