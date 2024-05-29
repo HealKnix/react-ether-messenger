@@ -9,6 +9,10 @@
 
 .avatar-text__wrapper:hover {
   background-color: var(--text-accent-color);
+
+  & > .avatar-text > .avatar-text__description {
+    color: var(--accent-color);
+  }
 }
 
 .avatar-img {

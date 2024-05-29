@@ -4,9 +4,11 @@ import './Profile.scss';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import TextArea from '../../components/TextArea/TextArea';
+import { useAccentColorTheme } from '../../store/useAccentColorTheme';
 
 const Profile: FC = () => {
   const authStore = useAuthStore();
+  const accentColorTheme = useAccentColorTheme();
   return (
     <>
       <div className="profile__wrapper">
@@ -23,6 +25,88 @@ const Profile: FC = () => {
             <div className="profile__change-photo link">
               Изменить фото профиля
             </div>
+          </div>
+        </div>
+
+        <div className="theme__wrapper">
+          <div>
+            <label htmlFor="">
+              Фиолетовый
+              <input
+                type="radio"
+                name="theme-input"
+                value="#5643D0"
+                checked={accentColorTheme.color === '#5643D0'}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  accentColorTheme.setColor(e.target.value);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor="">
+              Жёлтый
+              <input
+                type="radio"
+                name="theme-input"
+                value="#CDD043"
+                checked={accentColorTheme.color === '#CDD043'}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  accentColorTheme.setColor(e.target.value);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor="">
+              Оранжевый
+              <input
+                type="radio"
+                name="theme-input"
+                value="#D08743"
+                checked={accentColorTheme.color === '#D08743'}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  accentColorTheme.setColor(e.target.value);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor="">
+              Зелёный
+              <input
+                type="radio"
+                name="theme-input"
+                value="#43D049"
+                checked={accentColorTheme.color === '#43D049'}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  accentColorTheme.setColor(e.target.value);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor="">
+              Синий
+              <input
+                type="radio"
+                name="theme-input"
+                value="#438CD0"
+                checked={accentColorTheme.color === '#438CD0'}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  accentColorTheme.setColor(e.target.value);
+                }}
+              />
+            </label>
           </div>
         </div>
 

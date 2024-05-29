@@ -31,6 +31,7 @@
 }
 
 .post-functional {
+  user-select: none;
   display: flex;
   gap: 16px;
   stroke: var(--text-primary-color);
