@@ -1,3 +1,11 @@
+.desktop-logo {
+  display: block;
+}
+
+.mobile-logo {
+  display: none;
+}
+
 .logo {
   cursor: pointer;
   font-size: 36px;
@@ -15,6 +23,6 @@
   scale: 1.05;
 }
 
-.logo__accent-logo {
+.logo__accent-logo-name {
   color: var(--accent-color);
 }

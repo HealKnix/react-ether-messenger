@@ -57,8 +57,11 @@
   .side-bar-menu {
     width: 75px;
   }
-  .sticky-menu > .logo {
+  .sticky-menu > .logo > .desktop-logo {
     display: none;
+  }
+  .sticky-menu > .logo > .mobile-logo {
+    display: block;
   }
   .side-bar-menu__nav > li > a > span {
     display: none;
@@ -67,12 +70,6 @@
 
 @media (width <= 540px) {
   .side-bar-menu {
-    width: 55px;
-  }
-  .sticky-menu > .logo {
-    display: none;
-  }
-  .side-bar-menu__nav > li > a > span {
-    display: none;
+    width: 65px;
   }
 }
