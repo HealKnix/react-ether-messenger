@@ -1,6 +1,7 @@
 .avatar-text__wrapper {
   cursor: pointer;
   display: flex;
+  align-items: center;
   gap: 16px;
   padding: 6px;
   border-radius: 8px;
@@ -11,6 +12,8 @@
 }
 
 .avatar-img {
+  width: 48px;
+  height: 48px;
   flex: none;
   border-radius: 50%;
   background-position: center;
@@ -27,8 +30,29 @@
 .avatar-text__name {
   font-family: SFProTextSemibold;
   color: var(--text-primary-color);
+  font-size: 16px;
 }
 
 .avatar-text__description {
   color: var(--text-additional-color);
+  font-size: 16px;
+}
+
+@media (width <= 540px) {
+  .avatar-text__wrapper {
+    gap: 12px;
+  }
+  
+  .avatar-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .avatar-text__name {
+    font-size: 14px;
+  }
+
+  .avatar-text__description {
+    font-size: 12px;
+  }
 }

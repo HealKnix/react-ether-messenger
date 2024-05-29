@@ -12,6 +12,6 @@
 
 @media (width <= 921px) {
   .aside-content__wrapper {
-    flex-direction: column;
+    display: none;
   }
 }

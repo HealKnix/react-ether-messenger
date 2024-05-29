@@ -75,6 +75,10 @@
 }
 
 @media (width <= 540px) {
+  .post-functional > *  {
+    font-size: 14px;
+  }
+
   .post-description {
     font-size: 14px;
   }

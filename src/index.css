@@ -23,7 +23,8 @@
 }
 
 *::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
+  height: 4px;
   background-color: var(--text-additional-color);
 }
 
@@ -31,10 +32,10 @@
   background-color: var(--accent-color);
 }
 
-/* html, body {
+html, body {
   width: 100dvw;
   overflow-x: hidden;
-} */
+}
 
 a {
   display: block;
