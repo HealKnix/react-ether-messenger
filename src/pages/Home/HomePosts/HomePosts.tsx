@@ -21,7 +21,12 @@ const HomePosts: FC = () => {
             />
             {post.images ? (
               post.images?.map((image) => (
-                <img src={image} alt="post" className="post-image" />
+                <img
+                  src={image}
+                  alt="post"
+                  className="post-image"
+                  key={Math.random()}
+                />
               ))
             ) : (
               <></>

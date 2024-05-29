@@ -1,12 +1,12 @@
 #root {
   display: flex;
   max-width: 1440px;
-  height: 100dvh;
   margin: 0 auto;
 }
 
 @media (width <= 540px) {
   #root {
     flex-direction: column-reverse;
+    height: 100dvh;
   }
 }
