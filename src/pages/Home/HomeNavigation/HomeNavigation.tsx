@@ -14,8 +14,8 @@ const HomeNavigation: FC = () => {
               to="/home?filter=for-you"
               className={
                 '' == location.search || '?filter=for-you' == location.search
-                  ? 'active'
-                  : ''
+                  ? 'active nav'
+                  : ' nav'
               }
             >
               Для вас
@@ -25,7 +25,7 @@ const HomeNavigation: FC = () => {
             <Link
               to="/home?filter=subscribes"
               className={
-                '?filter=subscribes' == location.search ? 'active' : ''
+                '?filter=subscribes' == location.search ? 'active nav' : ' nav'
               }
             >
               Подписки
@@ -34,7 +34,9 @@ const HomeNavigation: FC = () => {
           <li>
             <Link
               to="/home?filter=favorites"
-              className={'?filter=favorites' == location.search ? 'active' : ''}
+              className={
+                '?filter=favorites' == location.search ? 'active nav' : ' nav'
+              }
             >
               Избранное
             </Link>

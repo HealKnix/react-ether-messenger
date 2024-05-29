@@ -40,12 +40,14 @@ body {
 }
 
 a, .link {
+  cursor: pointer;
   display: block;
   color: var(--accent-color);
   text-decoration: inherit;
 }
-a:hover {
+a:not(.nav):hover, .link:hover {
   color: var(--text-additional-color);
+  text-decoration: underline;
 }
 
 li {

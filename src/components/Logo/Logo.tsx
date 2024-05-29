@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Logo: FC = () => {
   return (
     <>
-      <Link to="/" className="logo">
+      <Link to="/" className="logo nav">
         <div className="desktop-logo">
           <span className="logo__accent-logo-name">Ether</span>
           <span className="logo__logo-name">Mess</span>

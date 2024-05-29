@@ -23,8 +23,8 @@ const SidebarMenu: FC = () => {
                     to={route.path}
                     className={
                       route.path === location.pathname
-                        ? `active nav-${route.name}`
-                        : `nav-${route.name}`
+                        ? `active nav-${route.name} nav`
+                        : `nav-${route.name} nav`
                     }
                   >
                     {<route.icon />}
