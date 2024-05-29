@@ -9,6 +9,7 @@ import UserAvatar5 from '../../assets/images/avatars/users/user5.png';
 export const userList: User[] = [
   {
     id: 0,
+    role: 'user',
     avatar: UserAvatar1,
     nickname: 'helenahils',
     firstName: 'Helena',
@@ -20,6 +21,7 @@ export const userList: User[] = [
   },
   {
     id: 1,
+    role: 'user',
     avatar: UserAvatar2,
     nickname: 'charlestran',
     firstName: 'Charles',
@@ -31,6 +33,7 @@ export const userList: User[] = [
   },
   {
     id: 2,
+    role: 'user',
     avatar: UserAvatar3,
     nickname: 'oscardavis',
     firstName: 'Oscar',
@@ -42,6 +45,7 @@ export const userList: User[] = [
   },
   {
     id: 3,
+    role: 'user',
     avatar: UserAvatar4,
     nickname: 'danielj',
     firstName: 'Daniel',
@@ -53,6 +57,7 @@ export const userList: User[] = [
   },
   {
     id: 4,
+    role: 'user',
     avatar: UserAvatar5,
     nickname: 'carlorojas',
     firstName: 'Carlo',

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import SidebarMenu from '../../components/SidebarMenu/SidebarMenu';
 import { router } from '../../routes';
 import './App.scss';
@@ -7,18 +7,17 @@ import './App.scss';
 const App: FC = () => {
   return (
     <>
-      <BrowserRouter>
-        <SidebarMenu />
-        <Routes>
-          {router.map((route) => (
-            <Route
-              path={route.path}
-              element={<route.component />}
-              key={route.path}
-            />
-          ))}
-        </Routes>
-      </BrowserRouter>
+      <SidebarMenu />
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        {router.map((route) => (
+          <Route
+            path={route.path}
+            element={<route.component />}
+            key={route.path}
+          />
+        ))}
+      </Routes>
     </>
   );
 };

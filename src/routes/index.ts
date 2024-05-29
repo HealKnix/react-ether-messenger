@@ -24,22 +24,13 @@ interface Router {
 
 export const router: Router[] = [
   {
-    path: '/',
-    name: 'home',
-    title: 'Главная',
-    component: Home,
-    icon: HomeSVG,
-    order: 2,
-    show: true,
-  },
-  {
     path: '/home',
     name: 'home',
     title: 'Главная',
     component: Home,
     icon: HomeSVG,
     order: 2,
-    show: false,
+    show: true,
   },
   {
     path: '/profile',
