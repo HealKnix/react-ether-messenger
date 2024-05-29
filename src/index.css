@@ -34,7 +34,8 @@
 
 html, body {
   width: 100dvw;
-  overflow-x: hidden;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 a {
@@ -85,3 +86,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+@media (width <= 540px) {
+  *::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+}
