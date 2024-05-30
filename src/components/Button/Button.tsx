@@ -4,13 +4,13 @@ import './Button.scss';
 interface ButtonProps {
   color?: 'accent' | 'light' | 'black' | 'red';
   children?: string | JSX.Element | JSX.Element[];
-  onChange?: () => void;
+  onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ color = 'accent', children, onChange }) => {
+const Button: FC<ButtonProps> = ({ color = 'accent', children, onClick }) => {
   return (
     <>
-      <button className={color} onClick={onChange}>
+      <button className={color} onClick={onClick}>
         {children}
       </button>
     </>

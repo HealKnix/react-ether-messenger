@@ -32,16 +32,20 @@ const LogIn: FC = () => {
           >
             <Input placeholder="Почта" type="email" required />
             <Input placeholder="Пароль" type="password" required />
-            <Button>Войти</Button>
-            <Button
-              color="black"
-              onChange={() => {
-                authStore.setUser(userList[0]);
-                localStorage.setItem('user', JSON.stringify(userList[0]));
-              }}
-            >
-              Вход под тестовым пользователем
-            </Button>
+            <Link to="/">
+              <Button>Войти</Button>
+            </Link>
+            <Link to="/">
+              <Button
+                color="black"
+                onClick={() => {
+                  authStore.setUser(userList[0]);
+                  localStorage.setItem('user', JSON.stringify(userList[0]));
+                }}
+              >
+                Вход под тестовым пользователем
+              </Button>
+            </Link>
           </form>
 
           <div className="login-divider">

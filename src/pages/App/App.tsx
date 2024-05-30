@@ -24,15 +24,8 @@ const App: FC = () => {
       {!authStore.isAuth() && (
         <>
           <Routes>
-            <Route
-              path="*"
-              element={
-                <>
-                  <Navigate to="/" replace />
-                  <LogIn />
-                </>
-              }
-            />
+            <Route path="*" element={<span>404</span>} />
+            <Route index path="/" element={<LogIn />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>
         </>
@@ -42,7 +35,7 @@ const App: FC = () => {
           <SidebarMenu />
           <Routes>
             <Route path="*" element={<span>404</span>} />
-            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route index path="/" element={<Navigate to="/home" replace />} />
             {router.map((route) => (
               <Route
                 path={route.path}
