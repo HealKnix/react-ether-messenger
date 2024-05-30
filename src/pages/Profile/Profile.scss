@@ -28,13 +28,21 @@
 
   & > .profile-avatar-text {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 24px;
 
-    & > .profile-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
+    & > .avatar-text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+
+      & > .profile-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+      }
     }
   }
 }

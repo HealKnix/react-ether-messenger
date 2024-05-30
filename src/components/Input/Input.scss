@@ -20,6 +20,10 @@
   transition: 0.15s ease-in-out;
 }
 
+.input::placeholder {
+  color: var(--text-additional-color);
+}
+
 .input:focus, .input:focus-visible {
   box-shadow: 0 0 0 2px var(--primary-accent-color);
 }

@@ -1,6 +1,8 @@
 button {
   --color: var(--primary-accent-color);
+  --color-outline: var(--primary-accent-light-color);
 
+  outline: 0 solid transparent;
   width: fit-content;
   border-radius: 8px;
   border: 1px solid transparent;
@@ -14,11 +16,31 @@ button {
 }
 button.accent {
   --color: var(--primary-accent-color);
+  --color-outline: var(--primary-accent-light-color);
+
   background-color: var(--color);
+  color: var(--white);
+}
+button.light {
+  --color: var(--primary-accent-light-color);
+  --color-outline: var(--primary-accent-color);
+
+  background-color: var(--color);
+  color: var(--color-outline);
 }
 button.black {
   --color: var(--black);
+  --color-outline: var(--primary-accent-light-color);
+
   background-color: var(--color);
+  color: var(--color-outline);
+}
+button.red {
+  --color: var(--red);
+  --color-outline: color-mix(in srgb, var(--red) 10%, white 100%);
+
+  background-color: var(--color);
+  color: var(--color-outline);
 }
 
 button:hover {
@@ -31,6 +53,6 @@ button:active {
 
 button:focus,
 button:focus-visible {
-  outline: 2px solid var(--white);
+  outline: 2px solid var(--color-outline);
   outline-offset: -4px;
 }

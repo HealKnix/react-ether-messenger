@@ -15,18 +15,28 @@ const Profile: FC = () => {
       <div className="profile__wrapper">
         <span className="profile-title">Редактировать профиль</span>
         <div className="profile-avatar-text">
-          <div
-            className="profile-avatar"
-            style={{
-              backgroundImage: `url(${authStore.user?.avatar})`,
-            }}
-          ></div>
-          <div className="profile-text">
-            <div className="profile__user-name">{`${authStore.user?.firstName} ${authStore.user?.lastName}`}</div>
-            <div className="profile__change-photo link">
-              Изменить фото профиля
+          <div className="avatar-text">
+            <div
+              className="profile-avatar"
+              style={{
+                backgroundImage: `url(${authStore.user?.avatar})`,
+              }}
+            ></div>
+            <div className="profile-text">
+              <div className="profile__user-name">{`${authStore.user?.firstName} ${authStore.user?.lastName}`}</div>
+              <div className="profile__change-photo link">
+                Изменить фото профиля
+              </div>
             </div>
           </div>
+          <Button
+            color="red"
+            onChange={() => {
+              authStore.setUser(null);
+            }}
+          >
+            Выйти из аккаунта
+          </Button>
         </div>
 
         <RadioForm
