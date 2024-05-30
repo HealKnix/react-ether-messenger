@@ -30,7 +30,6 @@ const Profile: FC = () => {
             </div>
           </div>
           <Button
-            href="/"
             color="red"
             onClick={() => {
               authStore.setUser(null);

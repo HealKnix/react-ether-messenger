@@ -32,9 +32,8 @@ const LogIn: FC = () => {
           >
             <Input type="email" title="Почта" movablePlaceholder required />
             <Input type="password" title="Пароль" movablePlaceholder required />
-            <Button href="/">Войти</Button>
+            <Button>Войти</Button>
             <Button
-              href="/"
               color="black"
               onClick={() => {
                 authStore.setUser(userList[0]);
