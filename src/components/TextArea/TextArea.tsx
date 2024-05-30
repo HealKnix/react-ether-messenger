@@ -10,9 +10,9 @@ interface ButtonProps {
 const TextArea: FC<ButtonProps> = ({ id, title, value }) => {
   return (
     <>
-      <label htmlFor={id} className="input__wrapper">
+      <label htmlFor={id} className="input--text-area__wrapper">
         {title}
-        <textarea id={id} className="input" value={value} />
+        <textarea id={id} className="input--text-area" value={value} />
       </label>
     </>
   );
