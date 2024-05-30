@@ -33,6 +33,7 @@ const Profile: FC = () => {
             color="red"
             onChange={() => {
               authStore.setUser(null);
+              localStorage.removeItem('user');
             }}
           >
             Выйти из аккаунта

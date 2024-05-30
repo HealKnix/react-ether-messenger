@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import SidebarMenu from '../../components/SidebarMenu/SidebarMenu';
@@ -12,6 +12,12 @@ import './App.scss';
 
 const App: FC = () => {
   const authStore = useAuthStore();
+
+  useEffect(() => {
+    if (localStorage.getItem('user'))
+      authStore.setUser(JSON.parse(localStorage.getItem('user') ?? ''));
+    else authStore.setUser(null);
+  }, []);
 
   return (
     <>

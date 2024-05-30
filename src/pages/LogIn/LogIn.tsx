@@ -37,6 +37,7 @@ const LogIn: FC = () => {
               color="black"
               onChange={() => {
                 authStore.setUser(userList[0]);
+                localStorage.setItem('user', JSON.stringify(userList[0]));
               }}
             >
               Вход под тестовым пользователем
