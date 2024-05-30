@@ -32,6 +32,7 @@
 
 .post-functional {
   user-select: none;
+  -webkit-user-select: none;
   display: flex;
   gap: 16px;
   stroke: var(--text-primary-color);
@@ -61,12 +62,12 @@
 }
 
 .post-functional-comment.active {
-  color: var(--accent-color);
+  color: var(--primary-accent-color);
 }
 
 .post-functional-comment.active > svg {
-  stroke: var(--accent-color);
-  fill: var(--text-accent-color);
+  stroke: var(--primary-accent-color);
+  fill: var(--primary-accent-light-color);
 }
 
 @media (width <= 921px) {

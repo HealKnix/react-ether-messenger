@@ -1,5 +1,5 @@
 button {
-  --color: var(--accent-color);
+  --color: var(--primary-accent-color);
 
   width: fit-content;
   border-radius: 8px;
@@ -8,11 +8,12 @@ button {
   font-size: 1em;
   font-family: SFProTextMedium;
   background-color: var(--color);
+  color: var(--white);
   cursor: pointer;
   transition: 0.05s ease-in-out;
 }
 button.accent {
-  --color: var(--accent-color);
+  --color: var(--primary-accent-color);
   background-color: var(--color);
 }
 button.black {

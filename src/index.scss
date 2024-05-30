@@ -30,7 +30,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--accent-color);
+  background-color: var(--primary-accent-color);
 }
 
 html,
@@ -39,10 +39,40 @@ body {
   overflow-x: hidden;
 }
 
+body.default-accent-color {
+  --primary-accent-color: #5643D0;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+}
+
+body.yellow-accent-color {
+  --primary-accent-color: #CDD043;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+}
+
+body.green-accent-color {
+  --primary-accent-color: #43D051;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+}
+
+body.blue-accent-color {
+  --primary-accent-color: #438CD0;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+}
+
+body.red-accent-color {
+  --primary-accent-color: #D04343;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+}
+
+body.pink-accent-color {
+  --primary-accent-color: #C543D0;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+}
+
 a, .link {
   cursor: pointer;
   display: block;
-  color: var(--accent-color);
+  color: var(--primary-accent-color);
   text-decoration: inherit;
 }
 a:not(.nav):hover, .link:hover {

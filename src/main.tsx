@@ -7,8 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 document
   .querySelector('body')
   ?.setAttribute(
-    'style',
-    `--accent-color: ${localStorage.getItem('accent-color-theme') ?? '#5643D0'}; --text-accent-color: color-mix(in srgb, ${localStorage.getItem('accent-color-theme') ?? '#5643D0'} 10%, white 100%)`,
+    'class',
+    localStorage.getItem('accent-color-theme') ?? 'default-accent-color',
   );
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -1,6 +1,6 @@
 :root {
-  --accent-color: #5643d0;
-  --text-accent-color: color-mix(in srgb, var(--accent-color) 10%, white 100%);
+  --primary-accent-color: #5643d0;
+  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
 
   --text-primary-color: #18171c;
   --text-additional-color: color-mix(
