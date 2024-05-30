@@ -5,25 +5,3 @@
   flex-direction: column;
   gap: 8px;
 }
-
-.input {
-  width: 100%;
-  outline: none;
-  background-color: var(--white);
-  color: var(--text-primary-color);
-  font-size: 16px;
-  font-family: SFProTextMedium;
-  border: 1px solid #E0E0E0;
-  border-radius: 8px;
-  padding: 10px;
-
-  transition: 0.15s ease-in-out;
-}
-
-.input::placeholder {
-  color: var(--text-additional-color);
-}
-
-.input:focus, .input:focus-visible {
-  box-shadow: 0 0 0 2px var(--primary-accent-color);
-}

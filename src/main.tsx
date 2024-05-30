@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './pages/App/App.tsx';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
+import { setThemeColor } from './utils/setThemeColor.ts';
 
-document
-  .querySelector('body')
-  ?.setAttribute(
-    'class',
-    localStorage.getItem('accent-color-theme') ?? 'default-accent-color',
-  );
+setThemeColor(
+  localStorage.getItem('accent-color-theme') ?? 'default-accent-color',
+);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

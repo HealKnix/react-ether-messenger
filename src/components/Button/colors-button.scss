@@ -1,0 +1,31 @@
+button.accent {
+  --color: var(--primary-accent-color);
+  --color-outline: var(--white);
+
+  background-color: var(--color);
+  color: var(--white);
+}
+
+button.light {
+  --color: var(--primary-accent-light-color);
+  --color-outline: var(--primary-accent-color);
+
+  background-color: var(--color);
+  color: var(--color-outline);
+}
+
+button.black {
+  --color: var(--black);
+  --color-outline: var(--white);
+
+  background-color: var(--color);
+  color: var(--color-outline);
+}
+
+button.red {
+  --color: var(--error);
+  --color-outline: color-mix(in srgb, var(--error) 10%, white 100%);
+
+  background-color: var(--color);
+  color: var(--white);
+}

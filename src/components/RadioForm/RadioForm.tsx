@@ -30,11 +30,12 @@ const RadioForm: FC<RadioFormProps> = ({
             <label
               htmlFor={`${idName}-${index}`}
               key={index}
-              className="input-radio"
+              className="label-input-radio"
             >
               <span>{v.name}</span>
               <input
                 type="radio"
+                className="input-radio"
                 id={`${idName}-${index}`}
                 value={v.value}
                 checked={v.value === value}

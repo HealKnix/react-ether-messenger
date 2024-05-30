@@ -1,0 +1,32 @@
+:root {
+  --default-accent-color: #5643d0;
+  --yellow-accent-color: #cdd043;
+  --green-accent-color: #5ebe20;
+  --blue-accent-color: #438cd0;
+  --red-accent-color: #ec486d;
+  --pink-accent-color: #c543d0;
+}
+
+html[data-theme-color="default-accent-color"] {
+  --primary-accent-color: var(--default-accent-color);
+}
+
+html[data-theme-color="yellow-accent-color"] {
+  --primary-accent-color: var(--yellow-accent-color);
+}
+
+html[data-theme-color="green-accent-color"] {
+  --primary-accent-color: var(--green-accent-color);
+}
+
+html[data-theme-color="blue-accent-color"] {
+  --primary-accent-color: var(--blue-accent-color);
+}
+
+html[data-theme-color="red-accent-color"] {
+  --primary-accent-color: var(--red-accent-color);
+}
+
+html[data-theme-color="pink-accent-color"] {
+  --primary-accent-color: var(--pink-accent-color);
+}

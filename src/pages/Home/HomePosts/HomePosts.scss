@@ -53,12 +53,12 @@
 }
 
 .post-functional-like.active {
-  color: var(--red);
+  color: var(--error);
 }
 
 .post-functional-like.active > svg {
-  stroke: var(--red);
-  fill: var(--red);
+  stroke: var(--error);
+  fill: var(--error);
 }
 
 .post-functional-comment.active {
