@@ -30,22 +30,19 @@ const LogIn: FC = () => {
               e.preventDefault();
             }}
           >
-            <Input placeholder="Почта" type="email" required />
-            <Input placeholder="Пароль" type="password" required />
-            <Link to="/">
-              <Button>Войти</Button>
-            </Link>
-            <Link to="/">
-              <Button
-                color="black"
-                onClick={() => {
-                  authStore.setUser(userList[0]);
-                  localStorage.setItem('user', JSON.stringify(userList[0]));
-                }}
-              >
-                Вход под тестовым пользователем
-              </Button>
-            </Link>
+            <Input type="email" title="Почта" movablePlaceholder required />
+            <Input type="password" title="Пароль" movablePlaceholder required />
+            <Button href="/">Войти</Button>
+            <Button
+              href="/"
+              color="black"
+              onClick={() => {
+                authStore.setUser(userList[0]);
+                localStorage.setItem('user', JSON.stringify(userList[0]));
+              }}
+            >
+              Вход под тестовым пользователем
+            </Button>
           </form>
 
           <div className="login-divider">

@@ -1,7 +1,30 @@
 @import url('../../assets/colors.scss');
 
 .input__wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  & > .input-title--movable-placeholder {
+    pointer-events: none;
+    position: absolute;
+    background-color: var(--white);
+    padding: 0 4px;
+    left: 4px;
+    top: 50%;
+    color: var(--text-additional-color);
+    transform: translate(6px, -50%);
+    transition: 0.15s ease-in-out;
+
+    &:has(+input:not(:placeholder-shown)) {
+      font-size: 12px;
+      top: 0;
+      transform: translate(6px, -50%);
+    }
+
+    &:has(+input:focus), &:has(+input:focus-visible) {
+      color: var(--primary-accent-color);
+    }
+  }
 }

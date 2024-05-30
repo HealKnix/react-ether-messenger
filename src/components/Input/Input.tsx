@@ -9,6 +9,7 @@ interface ButtonProps {
   required?: boolean;
   value?: string | number;
   children?: string | JSX.Element | JSX.Element[];
+  movablePlaceholder?: boolean;
 }
 
 const Input: FC<ButtonProps> = ({
@@ -19,11 +20,20 @@ const Input: FC<ButtonProps> = ({
   required,
   value,
   children,
+  movablePlaceholder,
 }) => {
   return (
     <>
       <label htmlFor={id} className="input__wrapper">
-        {title}
+        <span
+          className={
+            movablePlaceholder
+              ? 'input-title--movable-placeholder'
+              : 'input-title'
+          }
+        >
+          {title}
+        </span>
         {children ? (
           children
         ) : (
@@ -33,7 +43,7 @@ const Input: FC<ButtonProps> = ({
             type={type}
             value={value}
             required={required}
-            placeholder={placeholder}
+            placeholder={movablePlaceholder ? '' : placeholder}
           />
         )}
       </label>

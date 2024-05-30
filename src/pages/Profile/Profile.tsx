@@ -6,7 +6,6 @@ import Input from '../../components/Input/Input';
 import TextArea from '../../components/TextArea/TextArea';
 import { useAccentColorTheme } from '../../store/useAccentColorTheme';
 import RadioForm from '../../components/RadioForm/RadioForm';
-import { Link } from 'react-router-dom';
 
 const Profile: FC = () => {
   const authStore = useAuthStore();
@@ -30,17 +29,16 @@ const Profile: FC = () => {
               </div>
             </div>
           </div>
-          <Link to="/">
-            <Button
-              color="red"
-              onClick={() => {
-                authStore.setUser(null);
-                localStorage.removeItem('user');
-              }}
-            >
-              Выйти из аккаунта
-            </Button>
-          </Link>
+          <Button
+            href="/"
+            color="red"
+            onClick={() => {
+              authStore.setUser(null);
+              localStorage.removeItem('user');
+            }}
+          >
+            Выйти из аккаунта
+          </Button>
         </div>
 
         <RadioForm
