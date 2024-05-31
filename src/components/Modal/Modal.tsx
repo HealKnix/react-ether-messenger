@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom';
 
 import Button from '../Button/Button';
 
+import CrossSVG from '../../assets/cross.svg';
+
 import { useModalStore } from '../../store/useModalStore';
 import { useAuthStore } from '../../store/useAuthStore';
 
@@ -57,7 +59,7 @@ const Modal: FC = () => {
               color="white"
               onClick={() => modalStore.closeProfileModal()}
             >
-              <img src="/src/assets/cross.svg" alt="cross" width={16} />
+              <img src={CrossSVG} alt="cross" width={16} />
             </Button>
           </div>
           <hr />
