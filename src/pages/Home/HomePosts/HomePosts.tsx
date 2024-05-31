@@ -5,8 +5,8 @@ import CommentSVG from '@/components/SVG/CommentSVG';
 import { FC } from 'react';
 
 import './HomePosts.scss';
-import { postList } from '@//models/mock/post';
-import { getPastTimeString } from '@//utils/getPastTimeString';
+import { postList } from '@/models/mock/post';
+import { getPastTimeString } from '@/utils/getPastTimeString';
 
 const HomePosts: FC = () => {
   return (
