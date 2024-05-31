@@ -6,9 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { setThemeColor } from './utils/setThemeColor.ts';
 import Modal from './components/Modal/Modal.tsx';
 
-setThemeColor(
-  localStorage.getItem('accent-color-theme') ?? 'default-accent-color',
-);
+setThemeColor(localStorage.getItem('accent-color-theme'));
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
