@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { RadioFormValue } from '../components/RadioForm/RadioForm';
-import { setThemeColor } from '../utils/setThemeColor';
+import { RadioFormValue } from '@/components/RadioForm/RadioForm';
+import { setThemeColor } from '@/utils/setThemeColor';
 
 interface AccentColorThemeState {
   color: string;

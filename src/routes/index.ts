@@ -1,16 +1,18 @@
-import Home from '../pages/Home/Home';
+import Home from '@/pages/Home/Home';
 import { FC } from 'react';
-import Profile from '../pages/Profile/Profile';
-import Messenger from '../pages/Messenger/Messenger';
-import Search from '../pages/Search/Search';
-import Notifications from '../pages/Notifications/Notifications';
-import SavedPosts from '../pages/SavedPosts/SavedPosts';
-import HomeSVG from '../components/SVG/HomeSVG';
-import ProfileSVG from '../components/SVG/ProfileSVG';
-import MessageSVG from '../components/SVG/MessageSVG';
-import SearchSVG from '../components/SVG/SearchSVG';
-import BellSVG from '../components/SVG/BellSVG';
-import BookmarkSVG from '../components/SVG/BookmarkSVG';
+import Profile from '@/pages/Profile/Profile';
+import Messenger from '@/pages/Messenger/Messenger';
+import Search from '@/pages/Search/Search';
+import Notifications from '@/pages/Notifications/Notifications';
+import SavedPosts from '@/pages/SavedPosts/SavedPosts';
+import HomeSVG from '@/components/SVG/HomeSVG';
+import ProfileSVG from '@/components/SVG/ProfileSVG';
+import MessageSVG from '@/components/SVG/MessageSVG';
+import SearchSVG from '@/components/SVG/SearchSVG';
+import BellSVG from '@/components/SVG/BellSVG';
+import BookmarkSVG from '@/components/SVG/BookmarkSVG';
+import FriendsSVG from '@/components/SVG/FriendsSVG';
+import Friends from '@/pages/Friends/Friends';
 
 interface Router {
   path: string;
@@ -42,12 +44,21 @@ export const router: Router[] = [
     show: true,
   },
   {
+    path: '/friends',
+    name: 'friends',
+    title: 'Друзья',
+    component: Friends,
+    icon: FriendsSVG,
+    order: 3,
+    show: true,
+  },
+  {
     path: '/messenger',
     name: 'messenger',
     title: 'Мессенджер',
     component: Messenger,
     icon: MessageSVG,
-    order: 3,
+    order: 4,
     show: true,
   },
   {
@@ -56,7 +67,7 @@ export const router: Router[] = [
     title: 'Поиск',
     component: Search,
     icon: SearchSVG,
-    order: 4,
+    order: 5,
     show: true,
   },
   {
@@ -65,7 +76,7 @@ export const router: Router[] = [
     title: 'Уведомления',
     component: Notifications,
     icon: BellSVG,
-    order: 5,
+    order: 6,
     show: true,
   },
   {
@@ -74,7 +85,7 @@ export const router: Router[] = [
     title: 'Сохранённые посты',
     component: SavedPosts,
     icon: BookmarkSVG,
-    order: 6,
+    order: 7,
     show: true,
   },
 ];

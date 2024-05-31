@@ -1,12 +1,12 @@
 import { FC, useMemo } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import SidebarMenu from '../../components/SidebarMenu/SidebarMenu';
-import LogIn from '../LogIn/LogIn';
-import SignUp from '../SignUp/SignUp';
+import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
+import LogIn from '@/pages/LogIn/LogIn';
+import SignUp from '@/pages/SignUp/SignUp';
 
-import { useInitializeAuth } from '../../hooks/useInitializeAuth';
-import { router } from '../../routes';
+import { useInitializeAuth } from '@/hooks/useInitializeAuth';
+import { router } from '@/routes';
 
 import './App.scss';
 

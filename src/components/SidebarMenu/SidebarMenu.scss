@@ -110,11 +110,11 @@
   }
 
   .side-bar-menu__nav > li:nth-child(3) {
-    order: 4;
+    order: 3;
   }
 
   .side-bar-menu__nav > li:nth-child(4) {
-    order: 3;
+    order: 4;
   }
 
   .side-bar-menu__nav > li:nth-child(5) {
@@ -123,5 +123,11 @@
 
   .side-bar-menu__nav > li:nth-child(6) {
     display: none;
+    order: 6;
+  }
+
+  .side-bar-menu__nav > li:nth-child(7) {
+    display: none;
+    order: 7;
   }
 }

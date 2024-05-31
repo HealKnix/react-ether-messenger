@@ -1,10 +1,10 @@
-import { User } from '../User';
+import { User } from '@/User';
 
-import UserAvatar1 from '../../assets/images/avatars/users/user1.png';
-import UserAvatar2 from '../../assets/images/avatars/users/user2.png';
-import UserAvatar3 from '../../assets/images/avatars/users/user3.png';
-import UserAvatar4 from '../../assets/images/avatars/users/user4.png';
-import UserAvatar5 from '../../assets/images/avatars/users/user5.png';
+import UserAvatar1 from '@/assets/images/avatars/users/user1.png';
+import UserAvatar2 from '@/assets/images/avatars/users/user2.png';
+import UserAvatar3 from '@/assets/images/avatars/users/user3.png';
+import UserAvatar4 from '@/assets/images/avatars/users/user4.png';
+import UserAvatar5 from '@/assets/images/avatars/users/user5.png';
 
 export const userList: User[] = [
   {

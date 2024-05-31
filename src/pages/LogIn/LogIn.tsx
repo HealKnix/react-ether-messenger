@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
+import Input from '@/components/Input/Input';
+import Button from '@/components/Button/Button';
 
-import GoogleSVG from '../../assets/google.svg';
+import GoogleSVG from '@/assets/google.svg';
 
 import './LogIn.scss';
-import { useAuthStore } from '../../store/useAuthStore';
-import { userList } from '../../models/mock/user';
+import { useAuthStore } from '@/store/useAuthStore';
+import { userList } from '@/models/mock/user';
 
 const LogIn: FC = () => {
   const authStore = useAuthStore();

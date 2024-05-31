@@ -1,12 +1,12 @@
 import { FC, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import Button from '../Button/Button';
+import Button from '@/components/Button/Button';
 
-import CrossSVG from '../../assets/cross.svg';
+import CrossSVG from '@/assets/cross.svg';
 
-import { useModalStore } from '../../store/useModalStore';
-import { useAuthStore } from '../../store/useAuthStore';
+import { useModalStore } from '@/store/useModalStore';
+import { useAuthStore } from '@/store/useAuthStore';
 
 import './Modal.scss';
 

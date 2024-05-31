@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import './SidebarMenu.scss';
 import { Link, useLocation } from 'react-router-dom';
-import { router } from '../../routes';
-import Logo from '../Logo/Logo';
+import { router } from '@/routes';
+import Logo from '@/components/Logo/Logo';
 
 const SidebarMenu: FC = () => {
   const location = useLocation();
