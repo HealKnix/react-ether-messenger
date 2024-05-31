@@ -1,0 +1,38 @@
+dialog {
+  cursor: pointer;
+  width: 100%;
+  max-width: 500px;
+  padding: 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: auto;
+  z-index: 100;
+
+  & > .modal-content {
+    cursor: auto;
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 8px;
+
+    & > hr {
+      opacity: 0.5;
+    }
+
+    & > div {
+      display: flex;
+      justify-content: end;
+      gap: 8px;
+      margin-top: 16px;
+    }
+  }
+}
+
+dialog::backdrop {
+  cursor: pointer;
+  background-color: #33333366;
+}

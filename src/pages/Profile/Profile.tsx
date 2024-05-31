@@ -6,9 +6,11 @@ import Input from '../../components/Input/Input';
 import TextArea from '../../components/TextArea/TextArea';
 import { useAccentColorTheme } from '../../store/useAccentColorTheme';
 import RadioForm from '../../components/RadioForm/RadioForm';
+import { useModalStore } from '../../store/useModalStore';
 
 const Profile: FC = () => {
   const authStore = useAuthStore();
+  const modalStore = useModalStore();
   const accentColorTheme = useAccentColorTheme();
   return (
     <>
@@ -29,13 +31,7 @@ const Profile: FC = () => {
               </div>
             </div>
           </div>
-          <Button
-            color="red"
-            onClick={() => {
-              authStore.setUser(null);
-              localStorage.removeItem('user');
-            }}
-          >
+          <Button color="red" onClick={() => modalStore.openProfileModal()}>
             Выйти из аккаунта
           </Button>
         </div>
