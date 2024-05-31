@@ -7,6 +7,7 @@ dialog {
   border: none;
   outline: none;
   margin: auto;
+  animation: modal-show 0.25s ease-in-out;
   z-index: 100;
 
   & > .modal-content {
@@ -35,4 +36,27 @@ dialog {
 dialog::backdrop {
   cursor: pointer;
   background-color: #33333366;
+  animation: modal-backdrop-show 0.25s ease-in-out;
+}
+
+@keyframes modal-show {
+  from {
+    scale: 0.9;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-backdrop-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
