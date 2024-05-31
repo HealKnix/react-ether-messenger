@@ -9,7 +9,7 @@
   font-family: SFProTextBold;
   font-size: 28px;
 
-  transition: color 0.15s ease-in-out;
+  transition: var(--transition-color);
 }
 
 .home-nav > ul > li > a:hover {

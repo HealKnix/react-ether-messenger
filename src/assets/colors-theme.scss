@@ -7,26 +7,26 @@
   --pink-accent-color: #c543d0;
 }
 
-html[data-theme-color="default-accent-color"] {
+html[data-theme-color='default-accent-color'] {
   --primary-accent-color: var(--default-accent-color);
 }
 
-html[data-theme-color="yellow-accent-color"] {
+html[data-theme-color='yellow-accent-color'] {
   --primary-accent-color: var(--yellow-accent-color);
 }
 
-html[data-theme-color="green-accent-color"] {
+html[data-theme-color='green-accent-color'] {
   --primary-accent-color: var(--green-accent-color);
 }
 
-html[data-theme-color="blue-accent-color"] {
+html[data-theme-color='blue-accent-color'] {
   --primary-accent-color: var(--blue-accent-color);
 }
 
-html[data-theme-color="red-accent-color"] {
+html[data-theme-color='red-accent-color'] {
   --primary-accent-color: var(--red-accent-color);
 }
 
-html[data-theme-color="pink-accent-color"] {
+html[data-theme-color='pink-accent-color'] {
   --primary-accent-color: var(--pink-accent-color);
 }

@@ -1,6 +1,10 @@
 :root {
   --primary-accent-color: var(--default-accent-color);
-  --primary-accent-light-color: color-mix(in srgb, var(--primary-accent-color) 10%, white 100%);
+  --primary-accent-light-color: color-mix(
+    in srgb,
+    var(--primary-accent-color) 10%,
+    white 100%
+  );
 
   --text-primary-color: #18171c;
   --text-primary-light-color: color-mix(

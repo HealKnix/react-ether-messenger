@@ -38,6 +38,7 @@ const RadioForm: FC<RadioFormProps> = ({
                 className="input-radio"
                 id={`${idName}-${index}`}
                 value={v.value}
+                tabIndex={v.value === value ? 0 : -1}
                 checked={v.value === value}
                 onChange={onChange}
               />

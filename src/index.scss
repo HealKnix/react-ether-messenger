@@ -7,6 +7,10 @@
     sans-serif;
   font-size: 16px;
 
+  --transition-color: background-color 0.15s ease-in-out,
+    color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    outline-color 0.15s ease-in-out;
+
   background-color: white;
 
   color-scheme: light dark;
@@ -22,6 +26,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  transition: var(--transition-color);
 }
 
 *::-webkit-scrollbar {
@@ -40,13 +46,15 @@ body {
   overflow-x: hidden;
 }
 
-a, .link {
+a,
+.link {
   cursor: pointer;
   display: block;
   color: var(--primary-accent-color);
   text-decoration: inherit;
 }
-a:not(.nav):hover, .link:hover {
+a:not(.nav):hover,
+.link:hover {
   color: var(--text-additional-color);
   text-decoration: underline;
 }
@@ -60,7 +68,8 @@ h1 {
   line-height: 1.1;
 }
 
-input:not([type="radio"]), textarea {
+input:not([type='radio']),
+textarea {
   width: 100%;
   outline: none;
   background-color: var(--white);
@@ -71,15 +80,20 @@ input:not([type="radio"]), textarea {
   border-radius: 8px;
   padding: 10px;
 
-  transition: 0.15s ease-in-out;
+  transition:
+    0.15s ease-in-out,
+    var(--transition-color);
 }
 
-input:not([type="radio"])::placeholder, textarea::placeholder {
+input:not([type='radio'])::placeholder,
+textarea::placeholder {
   color: var(--text-additional-color);
 }
 
-input:not([type="radio"]):focus, input:not([type="radio"]):focus-visible,
-textarea:focus, textarea:focus-visible {
+input:not([type='radio']):focus,
+input:not([type='radio']):focus-visible,
+textarea:focus,
+textarea:focus-visible {
   border: 1px solid var(--primary-accent-color);
   box-shadow: 0 0 0 1px var(--primary-accent-color);
 }

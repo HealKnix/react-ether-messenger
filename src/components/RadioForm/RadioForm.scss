@@ -12,9 +12,10 @@
   & > .input-radio__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 5px;
     width: fit-content;
-    border: 1px solid #E0E0E0;
+    max-width: 320px;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 8px;
 
@@ -25,6 +26,25 @@
       cursor: pointer;
       display: flex;
       gap: 15px;
+      padding: 12px 8px;
+      border-radius: 8px;
+      box-shadow: 0 0 0 0 var(--primary-accent-color);
+      transition: box-shadow 0.15s ease-in-out;
+
+      & > span {
+        width: 100%;
+        transition: none;
+        text-align: center;
+      }
+
+      &:has(.input-radio:checked) {
+        background-color: var(--primary-accent-light-color);
+        box-shadow: 0 0 0 1px var(--primary-accent-color);
+      }
+
+      &:has(.input-radio:focus) {
+        box-shadow: 0 0 0 2px var(--primary-accent-color);
+      }
     }
   }
 }
@@ -32,12 +52,17 @@
 .input-radio {
   --size: 1rem;
 
+  flex: none;
   cursor: pointer;
   width: var(--size);
   height: var(--size);
   appearance: none;
+  outline: none;
   background-color: none;
-  box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--black);
+  box-shadow:
+    inset 0 0 0 0 var(--white),
+    inset 0 0 0 0 var(--black),
+    0 0 0 0 var(--black);
   border: 1px solid var(--black);
   border-radius: 50%;
 
@@ -45,5 +70,17 @@
 }
 
 .input-radio:checked {
-  box-shadow: inset 0 0 0 2px var(--white), inset 0 0 0 calc(var(--size) / 2) var(--black);
+  box-shadow:
+    inset 0 0 0 2px var(--white),
+    inset 0 0 0 calc(var(--size) / 2) var(--black),
+    0 0 0 0 var(--black);
+}
+
+.input-radio:focus,
+.input-radio:focus-visible {
+  border: 1px solid var(--primary-accent-color);
+  box-shadow:
+    inset 0 0 0 2px var(--white),
+    inset 0 0 0 calc(var(--size) / 2) var(--black),
+    0 0 0 2px var(--primary-accent-color);
 }

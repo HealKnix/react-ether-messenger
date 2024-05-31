@@ -15,15 +15,18 @@
     top: 50%;
     color: var(--text-additional-color);
     transform: translate(6px, -50%);
-    transition: 0.15s ease-in-out;
+    transition:
+      0.15s ease-in-out,
+      var(--transition-color);
 
-    &:has(+input:not(:placeholder-shown)) {
+    &:has(+ input:not(:placeholder-shown)) {
       font-size: 12px;
       top: 0;
       transform: translate(6px, -50%);
     }
 
-    &:has(+input:focus), &:has(+input:focus-visible) {
+    &:has(+ input:focus),
+    &:has(+ input:focus-visible) {
       color: var(--primary-accent-color);
     }
   }

@@ -15,7 +15,9 @@
   color: var(--text-primary-color);
 
   scale: 1;
-  transition: scale 0.15s ease-in-out;
+  transition:
+    scale 0.15s ease-in-out,
+    var(--transition-color);
 }
 
 .logo:hover {
