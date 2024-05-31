@@ -13,7 +13,8 @@
 
   background-color: white;
 
-  color-scheme: light dark;
+  // color-scheme: light dark;
+  color-scheme: light;
   color: var(--text-primary-color);
 
   font-synthesis: none;
@@ -104,18 +105,18 @@ textarea:focus-visible {
   box-shadow: 0 0 0 1px var(--primary-accent-color);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    color: #fff;
-    background-color: #213547;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     color: #fff;
+//     background-color: #213547;
+//   }
+//   a:hover {
+//     color: #747bff;
+//   }
+//   button {
+//     background-color: #f9f9f9;
+//   }
+// }
 
 @media (width <= 540px) {
   *::-webkit-scrollbar {

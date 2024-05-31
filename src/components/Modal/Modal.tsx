@@ -1,45 +1,50 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 import { FC, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import './Modal.scss';
-import { useModalStore } from '../../store/useModalStore';
 import Button from '../Button/Button';
+
+import { useModalStore } from '../../store/useModalStore';
 import { useAuthStore } from '../../store/useAuthStore';
 
+import './Modal.scss';
+
 const Modal: FC = () => {
-  const dialog = useRef<HTMLDialogElement>();
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const authStore = useAuthStore();
   const modalStore = useModalStore();
 
   useEffect(() => {
     if (modalStore.profileModal) {
-      dialog.current?.showModal();
+      dialogRef.current?.showModal();
     } else {
-      dialog.current?.close();
+      dialogRef.current?.close();
     }
-  }, [modalStore.profileModal, dialog, modalStore]);
+  }, [modalStore.profileModal]);
 
   useEffect(() => {
-    const clickDialogHandler = dialog.current?.addEventListener(
-      'click',
-      (e: PointerEvent) => {
-        const dialogHTML = e.target as HTMLDialogElement;
+    const clickDialogHandler = (e: MouseEvent) => {
+      const dialogHTML = e.target as HTMLDialogElement;
 
-        if (dialogHTML.id === 'dialog') {
-          modalStore.closeProfileModal();
-        }
-      },
-    );
+      if (dialogHTML.id === 'dialog') {
+        modalStore.closeProfileModal();
+      }
+    };
 
-    return removeEventListener('click', clickDialogHandler);
-  }, []);
+    dialogRef.current?.addEventListener('click', clickDialogHandler);
+
+    return () => {
+      dialogRef.current?.removeEventListener('click', clickDialogHandler);
+    };
+  }, [dialogRef, modalStore]);
 
   return createPortal(
     <>
-      <dialog id="dialog" ref={dialog} tabIndex={-1}>
+      <dialog
+        id="dialog"
+        ref={dialogRef}
+        tabIndex={-1}
+        aria-label="Exit confirmation"
+      >
         <div className="modal-content" tabIndex={0}>
           <h1>Выход</h1>
           <hr />
@@ -66,7 +71,7 @@ const Modal: FC = () => {
         </div>
       </dialog>
     </>,
-    document.getElementById('modal'),
+    document.getElementById('modal')!,
   );
 };
 
