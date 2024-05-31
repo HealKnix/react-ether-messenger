@@ -1,4 +1,4 @@
-import { Post } from '@/Post';
+import { Post } from '@/models/Post';
 import { userList } from './user';
 
 import Post1 from '@/assets/images/posts/post1.png';

@@ -1,4 +1,4 @@
-import { User } from '@/User';
+import { User } from '@/models/User';
 
 import UserAvatar1 from '@/assets/images/avatars/users/user1.png';
 import UserAvatar2 from '@/assets/images/avatars/users/user2.png';
