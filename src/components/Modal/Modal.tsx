@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { FC, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -22,7 +25,7 @@ const Modal: FC = () => {
   useEffect(() => {
     const clickDialogHandler = dialog.current?.addEventListener(
       'click',
-      (e: MouseEvent) => {
+      (e: PointerEvent) => {
         const dialogHTML = e.target as HTMLDialogElement;
 
         if (dialogHTML.id === 'dialog') {

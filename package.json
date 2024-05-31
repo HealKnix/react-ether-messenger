@@ -12,7 +12,7 @@
     "prettier": "prettier --ignore-unknown --write .",
     "eslint": "eslint **/*.{tsx,ts,js}",
     "eslint:fix": "eslint **/*.{tsx,ts,js} --fix",
-    "lint": "npm run prettier && npm run eslint && npm run type-check"
+    "lint": "npm run prettier && npm run eslint:fix && npm run type-check"
   },
   "dependencies": {
     "prettier": "^3.2.5",
