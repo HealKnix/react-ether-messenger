@@ -7,6 +7,7 @@ import HomeSVG from '../SVG/HomeSVG';
 import FriendsSVG from '../SVG/FriendsSVG';
 import MessageSVG from '../SVG/MessageSVG';
 import { useAuthStore } from '@/store/useAuthStore';
+import BellSVG from '../SVG/BellSVG';
 
 const SidebarMenu: FC = () => {
   const location = useLocation();
@@ -48,6 +49,7 @@ const SidebarMenu: FC = () => {
                 <HomeSVG />
               </Link>
             </li>
+
             <li>
               <Link
                 to="/friends"
@@ -58,6 +60,7 @@ const SidebarMenu: FC = () => {
                 <FriendsSVG />
               </Link>
             </li>
+
             <li>
               <Link
                 to="/messenger"
@@ -68,6 +71,18 @@ const SidebarMenu: FC = () => {
                 <MessageSVG />
               </Link>
             </li>
+
+            <li>
+              <Link
+                to="/notifications"
+                className={
+                  '/notifications' === location.pathname ? 'active nav' : 'nav'
+                }
+              >
+                <BellSVG />
+              </Link>
+            </li>
+
             <li>
               <Link
                 to="/profile"
