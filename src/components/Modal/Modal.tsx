@@ -26,30 +26,43 @@ const Modal: FC = () => {
       const dialogHTML = e.target as HTMLDialogElement;
 
       if (dialogHTML.id === 'dialog') {
+        e.preventDefault();
         modalStore.closeProfileModal();
       }
     };
 
-    dialogRef.current?.addEventListener('click', clickDialogHandler);
+    const keyDownDialogHandler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        modalStore.closeProfileModal();
+      }
+    };
+
+    dialogRef.current?.addEventListener('mouseup', clickDialogHandler);
+    dialogRef.current?.addEventListener('keydown', keyDownDialogHandler);
 
     return () => {
-      dialogRef.current?.removeEventListener('click', clickDialogHandler);
+      dialogRef.current?.removeEventListener('mouseup', clickDialogHandler);
+      dialogRef.current?.removeEventListener('keydown', keyDownDialogHandler);
     };
   }, [dialogRef, modalStore]);
 
   return createPortal(
     <>
-      <dialog
-        id="dialog"
-        ref={dialogRef}
-        tabIndex={-1}
-        aria-label="Exit confirmation"
-      >
+      <dialog id="dialog" ref={dialogRef} tabIndex={-1}>
         <div className="modal-content" tabIndex={0}>
-          <h1>Выход</h1>
+          <div className="modal-header">
+            <span className="modal-title">Выход</span>
+            <Button
+              color="white"
+              onClick={() => modalStore.closeProfileModal()}
+            >
+              <img src="/src/assets/cross.svg" alt="cross" width={16} />
+            </Button>
+          </div>
           <hr />
-          <h4>Вы точно хотите выйти?</h4>
-          <div>
+          <span className="modal-description">Вы точно хотите выйти?</span>
+          <div className="modal-buttons">
             <Button
               onClick={() => {
                 modalStore.closeProfileModal();

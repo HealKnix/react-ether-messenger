@@ -47,6 +47,10 @@ body {
   overflow-x: hidden;
 }
 
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 a,
 .link {
   cursor: pointer;

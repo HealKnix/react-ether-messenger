@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './Button.scss';
 
 interface ButtonProps {
-  color?: 'accent' | 'light' | 'black' | 'red';
+  color?: 'accent' | 'light' | 'black' | 'red' | 'white';
   children?: string | JSX.Element | JSX.Element[];
   onClick?: () => void;
 }

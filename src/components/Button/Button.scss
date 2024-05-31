@@ -4,6 +4,9 @@ button {
   --color: var(--primary-accent-color);
   --color-outline: var(--primary-accent-light-color);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   outline: 0 solid transparent;
   border-radius: 8px;
   border: 1px solid transparent;
