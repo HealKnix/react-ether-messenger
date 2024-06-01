@@ -52,7 +52,7 @@ const Modal: FC = () => {
   return createPortal(
     <>
       <dialog id="dialog" ref={dialogRef} tabIndex={-1}>
-        <div className="modal-content" tabIndex={0}>
+        <div className="modal-content" tabIndex={-1}>
           <div className="modal-header">
             <span className="modal-title">Выход</span>
             <Button
