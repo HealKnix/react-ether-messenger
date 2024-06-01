@@ -29,7 +29,9 @@
       padding: 12px 8px;
       border-radius: 8px;
       box-shadow: 0 0 0 0 var(--primary-accent-color);
-      transition: box-shadow 0.15s ease-in-out;
+      transition:
+        box-shadow 0.15s ease-in-out,
+        scale 0.15s ease-in-out;
 
       & > span {
         width: 100%;
@@ -44,6 +46,10 @@
 
       &:has(.input-radio:focus) {
         box-shadow: 0 0 0 2px var(--primary-accent-color);
+      }
+
+      &:active {
+        scale: 0.95;
       }
     }
   }
