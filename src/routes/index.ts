@@ -49,7 +49,7 @@ export const router: Router[] = [
     title: 'Друзья',
     component: Friends,
     icon: FriendsSVG,
-    order: 3,
+    order: 4,
     show: true,
   },
   {
@@ -58,7 +58,7 @@ export const router: Router[] = [
     title: 'Мессенджер',
     component: Messenger,
     icon: MessageSVG,
-    order: 4,
+    order: 3,
     show: true,
   },
   {
