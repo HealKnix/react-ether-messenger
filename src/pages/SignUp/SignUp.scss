@@ -1,0 +1,59 @@
+.sign-up__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  & > .sign-up {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 500px;
+    padding: 36px;
+
+    & > .sign-up-text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+
+      & > .sign-up-title {
+        font-size: 36px;
+        font-family: SFProTextBold;
+      }
+
+      & > .sign-up-description {
+        color: var(--text-additional-color);
+      }
+    }
+
+    & > form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      & > button {
+        width: 100%;
+      }
+    }
+
+    & > .sign-up-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-additional-color);
+    }
+
+    & > button {
+      width: 100%;
+    }
+
+    & > .sign-up-functional {
+      text-align: center;
+      color: var(--text-additional-color);
+    }
+  }
+}

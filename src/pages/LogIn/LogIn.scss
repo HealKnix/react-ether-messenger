@@ -10,7 +10,7 @@
     flex-direction: column;
     gap: 24px;
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     padding: 36px;
 
     & > .login-text {
@@ -53,9 +53,15 @@
 
     & > .login-functional {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 16px;
+
+      @media (width < 420px) {
+        & {
+          justify-content: center;
+        }
+      }
     }
   }
 }

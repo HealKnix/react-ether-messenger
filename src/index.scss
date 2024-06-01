@@ -54,7 +54,7 @@ html:has(dialog[open]) {
 a,
 .link {
   cursor: pointer;
-  display: block;
+  display: inline;
   color: var(--primary-accent-color);
   text-decoration: inherit;
 }

@@ -6,9 +6,10 @@ import Button from '@/components/Button/Button';
 
 import GoogleSVG from '@/assets/google.svg';
 
-import './LogIn.scss';
 import { useAuthStore } from '@/store/useAuthStore';
 import { userList } from '@/models/mock/user';
+
+import './LogIn.scss';
 
 const LogIn: FC = () => {
   const authStore = useAuthStore();

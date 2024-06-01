@@ -12,11 +12,7 @@
     var(--text-primary-color) 100%,
     white 0%
   );
-  --text-additional-color: color-mix(
-    in srgb,
-    var(--text-primary-color) 40%,
-    white 100%
-  );
+  --text-additional-color: #8c8c8c;
 
   --border-color: #e0e0e0;
 
