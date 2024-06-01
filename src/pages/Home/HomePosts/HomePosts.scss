@@ -65,15 +65,15 @@
 .post-functional-like:before {
   display: none;
   top: -75%;
-  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-image: radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, var(--error) 20%, transparent 30%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, var(--error) 15%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%);
   background-size:
     10% 10%,
     20% 20%,
@@ -88,13 +88,13 @@
 .post-functional-like:after {
   display: none;
   bottom: -75%;
-  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-image: radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, var(--error) 15%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%),
+    radial-gradient(circle, var(--error) 20%, transparent 20%);
   background-size:
     15% 15%,
     20% 20%,

@@ -42,15 +42,9 @@ const HomePosts: FC = () => {
                   likeBtn.classList.toggle('active');
 
                   if (likeBtn.classList.contains('active')) {
-                    // @ts-expect-error-next-line
-                    likeBtn.children[1].innerText =
-                      // @ts-expect-error-next-line
-                      parseInt(likeBtn.children[1].innerText) + 1;
+                    likeBtn.children[1].textContent = `${parseInt(likeBtn.children[1].textContent ?? '') + 1}`;
                   } else {
-                    // @ts-expect-error-next-line
-                    likeBtn.children[1].innerText =
-                      // @ts-expect-error-next-line
-                      parseInt(likeBtn.children[1].innerText) - 1;
+                    likeBtn.children[1].textContent = `${parseInt(likeBtn.children[1].textContent ?? '') - 1}`;
                   }
                 }}
               >
