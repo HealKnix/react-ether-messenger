@@ -7,6 +7,7 @@ import { FC } from 'react';
 import './HomePosts.scss';
 import { postList } from '@/models/mock/post';
 import { getPastTimeString } from '@/utils/getPastTimeString';
+import Button from '@/components/Button/Button';
 
 const HomePosts: FC = () => {
   return (
@@ -33,14 +34,33 @@ const HomePosts: FC = () => {
             )}
             <span className="post-description">{post.text}</span>
             <div className="post-functional">
-              <div className="post-functional-like active">
+              <Button
+                className="post-functional-like"
+                color="white"
+                onClick={(e) => {
+                  const likeBtn = (e as MouseEvent).target as HTMLButtonElement;
+                  likeBtn.classList.toggle('active');
+
+                  if (likeBtn.classList.contains('active')) {
+                    // @ts-expect-error-next-line
+                    likeBtn.children[1].innerText =
+                      // @ts-expect-error-next-line
+                      parseInt(likeBtn.children[1].innerText) + 1;
+                  } else {
+                    // @ts-expect-error-next-line
+                    likeBtn.children[1].innerText =
+                      // @ts-expect-error-next-line
+                      parseInt(likeBtn.children[1].innerText) - 1;
+                  }
+                }}
+              >
                 <LikeSVG />
                 <span className="like-count">{post.likeCount}</span>
-              </div>
-              <div className="post-functional-comment active">
+              </Button>
+              <Button className="post-functional-comment active" color="white">
                 <CommentSVG />
                 <span className="comment-count">{post.commentCount}</span>
-              </div>
+              </Button>
             </div>
           </div>
         ))}
