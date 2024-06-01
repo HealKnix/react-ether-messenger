@@ -1,7 +1,9 @@
 .posts__wrapper {
+  --gap: 32px;
+
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--gap);
   max-width: 500px;
 }
 
@@ -12,14 +14,9 @@
   padding: 8px;
 }
 
-.post:not(:last-child):after {
-  position: relative;
-  display: block;
-  content: '';
-  width: 100%;
-  height: 1px;
-  margin-top: 32px;
-  background-color: #e0e0e0;
+.post:not(:last-child) {
+  padding-bottom: var(--gap);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .post-image {
@@ -43,13 +40,18 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 1000px;
 
   transition: scale 0.05s ease-in-out;
 }
 
 .post-functional > *:active {
   scale: 0.9;
+}
+
+.post-functional-like:hover {
+  background-color: color-mix(in srgb, var(--error) 10%, transparent 0%);
 }
 
 .post-functional-like.active {
@@ -59,6 +61,14 @@
 .post-functional-like.active > svg {
   stroke: var(--error);
   fill: var(--error);
+}
+
+.post-functional-comment:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-accent-color) 10%,
+    transparent 0%
+  );
 }
 
 .post-functional-comment.active {
@@ -77,6 +87,10 @@
 }
 
 @media (width <= 540px) {
+  .posts__wrapper {
+    --gap: 16px;
+  }
+
   .post-functional > * {
     font-size: 14px;
   }

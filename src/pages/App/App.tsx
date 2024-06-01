@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
@@ -16,12 +16,6 @@ import './App.scss';
 const App: FC = () => {
   const { isAuthenticated, loading } = useInitializeAuth();
   const { isMobile, isDesktop } = useResolution();
-
-  useEffect(() => {
-    console.log(isMobile);
-    console.log(isDesktop);
-    console.log('========');
-  }, [isMobile, isDesktop]);
 
   const authenticatedRoutes = useMemo(
     () => (
