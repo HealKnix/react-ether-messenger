@@ -25,15 +25,17 @@ const Input: FC<ButtonProps> = ({
   return (
     <>
       <label htmlFor={id} className="input__wrapper">
-        <span
-          className={
-            movablePlaceholder
-              ? 'input-title--movable-placeholder'
-              : 'input-title'
-          }
-        >
-          {title}
-        </span>
+        {title && (
+          <span
+            className={
+              movablePlaceholder
+                ? 'input-title--movable-placeholder'
+                : 'input-title'
+            }
+          >
+            {title}
+          </span>
+        )}
         {children ? (
           children
         ) : (

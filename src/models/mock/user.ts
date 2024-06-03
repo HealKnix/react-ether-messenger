@@ -5,6 +5,10 @@ import UserAvatar2 from '@/assets/images/avatars/users/user2.png';
 import UserAvatar3 from '@/assets/images/avatars/users/user3.png';
 import UserAvatar4 from '@/assets/images/avatars/users/user4.png';
 import UserAvatar5 from '@/assets/images/avatars/users/user5.png';
+import UserAvatar6 from '@/assets/images/avatars/users/user6.png';
+import UserAvatar7 from '@/assets/images/avatars/users/user7.png';
+import UserAvatar8 from '@/assets/images/avatars/users/user8.png';
+import UserAvatar9 from '@/assets/images/avatars/users/user9.png';
 
 export const userList: User[] = [
   {
@@ -63,6 +67,54 @@ export const userList: User[] = [
     firstName: 'Carlo',
     lastName: 'Rojas',
     email: 'carlorojas@gmail.com',
+    password: 'carlo1997',
+    sex: 'm',
+    bio: 'Что-то на биографическом',
+  },
+  {
+    id: 5,
+    role: 'user',
+    avatar: UserAvatar6,
+    nickname: 'giannis',
+    firstName: 'Giannis',
+    lastName: 'Constantinou',
+    email: 'giannisconst@gmail.com',
+    password: 'carlo1997',
+    sex: 'm',
+    bio: 'Что-то на биографическом',
+  },
+  {
+    id: 6,
+    role: 'user',
+    avatar: UserAvatar7,
+    nickname: 'briana',
+    firstName: 'Briana',
+    lastName: 'Lewis',
+    email: 'brianalewis@gmail.com',
+    password: 'carlo1997',
+    sex: 'm',
+    bio: 'Что-то на биографическом',
+  },
+  {
+    id: 7,
+    role: 'user',
+    avatar: UserAvatar8,
+    nickname: 'annahills',
+    firstName: 'Anna',
+    lastName: 'Hills',
+    email: 'annahills@gmail.com',
+    password: 'carlo1997',
+    sex: 'm',
+    bio: 'Что-то на биографическом',
+  },
+  {
+    id: 8,
+    role: 'user',
+    avatar: UserAvatar9,
+    nickname: 'sharryroy',
+    firstName: 'Sherry',
+    lastName: 'Roy',
+    email: 'sharryroy@gmail.com',
     password: 'carlo1997',
     sex: 'm',
     bio: 'Что-то на биографическом',

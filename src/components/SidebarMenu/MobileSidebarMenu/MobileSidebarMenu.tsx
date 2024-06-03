@@ -36,9 +36,9 @@ const MobileSidebarMenu: FC = () => {
           </li>
           <li>
             <Link
-              to="/messenger"
+              to="/messages"
               className={
-                '/messenger' === location.pathname ? 'active nav' : 'nav'
+                '/messages' === location.pathname ? 'active nav' : 'nav'
               }
             >
               <MessageSVG />

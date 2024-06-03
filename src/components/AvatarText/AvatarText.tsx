@@ -6,14 +6,20 @@ interface AvatarTextProps {
   imgSize?: number;
   name: string;
   nameSize?: number;
+  selected?: boolean;
   description: string;
   descriptionSize?: number;
 }
 
-const AvatarText: FC<AvatarTextProps> = ({ img, name, description }) => {
+const AvatarText: FC<AvatarTextProps> = ({
+  img,
+  name,
+  description,
+  selected,
+}) => {
   return (
     <>
-      <div className="avatar-text__wrapper">
+      <div className={`avatar-text__wrapper ${selected ? 'selected' : ''}`}>
         <div
           className="avatar-img"
           style={{

@@ -1,7 +1,7 @@
 import Home from '@/pages/Home/Home';
 import { FC } from 'react';
 import Profile from '@/pages/Profile/Profile';
-import Messenger from '@/pages/Messenger/Messenger';
+import Messages from '@/pages/Messages/Messages';
 import Search from '@/pages/Search/Search';
 import Notifications from '@/pages/Notifications/Notifications';
 import SavedPosts from '@/pages/SavedPosts/SavedPosts';
@@ -53,10 +53,10 @@ export const router: Router[] = [
     show: true,
   },
   {
-    path: '/messenger',
-    name: 'messenger',
-    title: 'Мессенджер',
-    component: Messenger,
+    path: '/messages',
+    name: 'messages',
+    title: 'Сообщения',
+    component: Messages,
     icon: MessageSVG,
     order: 3,
     show: true,
