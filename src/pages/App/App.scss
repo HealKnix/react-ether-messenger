@@ -9,6 +9,7 @@
 @media (width <= 540px) {
   #root {
     flex-direction: column-reverse;
+    padding: 0;
     height: 100dvh;
   }
 }

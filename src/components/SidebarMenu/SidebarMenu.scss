@@ -5,12 +5,14 @@
   background-color: var(--white);
   gap: 15px;
   flex: none;
-  width: 256px;
+  width: 260px;
+  max-width: 260px;
   padding: 8px;
   overflow: hidden;
 }
 
 .sticky-menu {
+  width: inherit;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -58,6 +60,7 @@
 }
 
 .side-bar-menu__nav > li > a > svg {
+  flex: none;
   stroke: var(--text-primary-color);
 }
 
