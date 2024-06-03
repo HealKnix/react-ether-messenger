@@ -26,9 +26,15 @@
   height: 100%;
   padding: 16px;
   border-radius: 8px;
+  transition: 0.15s ease-in-out;
 
   box-shadow: 0 0 16px 0
     color-mix(in srgb, var(--primary-accent-color) 7.5%, transparent 0%);
+}
+
+.side-bar-menu__nav:hover {
+  box-shadow: 0 0 16px 0
+    color-mix(in srgb, var(--primary-accent-color) 10%, transparent 0%);
 }
 
 .side-bar-menu__nav > li > a {
