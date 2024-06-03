@@ -1,16 +1,22 @@
 import { Message } from './Message';
 import { User } from './User';
 
-type TypeConversation = 'user' | 'chat';
+type _ConversationUser = {
+  type: 'user';
 
-export interface Conversation {
+  user: User;
+};
+
+type _ConversationChat = {
+  type: 'chat';
+
+  members: User[];
+  admins: User[];
+  owner: User;
+};
+
+export type Conversation = {
   id: number;
-  type: TypeConversation;
+  peer_id: number;
   last_message: Message;
-  from_user: User;
-  to_user: User;
-
-  users?: User[];
-  admins?: User[] | null;
-  owner?: User | null;
-}
+} & (_ConversationUser | _ConversationChat);
