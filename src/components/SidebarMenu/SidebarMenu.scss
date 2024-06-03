@@ -6,11 +6,8 @@
   gap: 15px;
   flex: none;
   width: 256px;
-  height: 100vh;
-  max-width: 256px;
   padding: 8px;
-
-  box-shadow: 0 0 16px 0 rgba(#000, 0.05);
+  overflow: hidden;
 }
 
 .sticky-menu {
@@ -26,6 +23,12 @@
   flex-direction: column;
   width: 100%;
   gap: 5px;
+  height: 100%;
+  padding: 16px;
+  border-radius: 8px;
+
+  box-shadow: 0 0 16px 0
+    color-mix(in srgb, var(--primary-accent-color) 7.5%, transparent 0%);
 }
 
 .side-bar-menu__nav > li > a {
