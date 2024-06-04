@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC } from 'react';
+import { FC } from 'react';
 import './RadioForm.scss';
 
 export interface RadioFormValue {
@@ -11,7 +11,8 @@ interface RadioFormProps {
   title: string;
   values: readonly RadioFormValue[];
   value: string | number | readonly string[] | undefined;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const RadioForm: FC<RadioFormProps> = ({
@@ -40,7 +41,7 @@ const RadioForm: FC<RadioFormProps> = ({
                 value={v.value}
                 tabIndex={v.value === value ? 0 : -1}
                 checked={v.value === value}
-                onChange={onChange}
+                onChange={onChange ?? (() => {})}
               />
             </label>
           ))}

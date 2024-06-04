@@ -10,6 +10,11 @@ interface ButtonProps {
   value?: string | number;
   children?: string | JSX.Element | JSX.Element[];
   movablePlaceholder?: boolean;
+
+  forwardRef?: React.Ref<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onSubmit?: React.FormEventHandler<HTMLInputElement> | undefined;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
 }
 
 const Input: FC<ButtonProps> = ({
@@ -21,6 +26,10 @@ const Input: FC<ButtonProps> = ({
   value,
   children,
   movablePlaceholder,
+  forwardRef,
+  onChange,
+  onSubmit,
+  onKeyDown,
 }) => {
   return (
     <>
@@ -46,6 +55,10 @@ const Input: FC<ButtonProps> = ({
             value={value}
             required={required}
             placeholder={movablePlaceholder ? '' : placeholder}
+            ref={forwardRef}
+            onChange={onChange ?? (() => {})}
+            onSubmit={onSubmit}
+            onKeyDown={onKeyDown}
           />
         )}
       </label>

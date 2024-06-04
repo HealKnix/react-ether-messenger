@@ -16,9 +16,9 @@ const HomePosts: FC = () => {
         {postList.map((post) => (
           <div className="post" key={post.id}>
             <AvatarText
-              img={post.createdBy.avatar}
-              name={post.createdBy.firstName + ' ' + post.createdBy.lastName}
-              description={getPastTimeString(post.dateCreated)}
+              img={post.created_by.avatar}
+              name={post.created_by.firstName + ' ' + post.created_by.lastName}
+              description={getPastTimeString(post.created_at)}
             />
             {post.images ? (
               post.images?.map((image) => (

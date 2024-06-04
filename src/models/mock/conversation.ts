@@ -5,7 +5,7 @@ export const conversationList: Conversation[] = [
   {
     id: 0,
     type: 'user',
-    peer_id: 0,
+    peer_id: 1,
     last_message: 'Если у меня возникнут вопросы, я обращусь в тех поддержку',
     user: userList[1],
     messages: [
@@ -74,7 +74,7 @@ export const conversationList: Conversation[] = [
   {
     id: 1,
     type: 'user',
-    peer_id: 0,
+    peer_id: 2,
     last_message: 'Погнали',
     user: userList[2],
     messages: [],
@@ -82,7 +82,7 @@ export const conversationList: Conversation[] = [
   {
     id: 2,
     type: 'user',
-    peer_id: 0,
+    peer_id: 3,
     last_message: 'Реальноо',
     user: userList[3],
     messages: [],
@@ -90,7 +90,7 @@ export const conversationList: Conversation[] = [
   {
     id: 3,
     type: 'user',
-    peer_id: 0,
+    peer_id: 4,
     last_message: 'Лол да, ты придешь на обед 13-го?',
     user: userList[4],
     messages: [],
@@ -98,7 +98,7 @@ export const conversationList: Conversation[] = [
   {
     id: 4,
     type: 'user',
-    peer_id: 0,
+    peer_id: 5,
     last_message: 'здорово наверстать упущенное за ужином!!!',
     user: userList[5],
     messages: [],
@@ -106,7 +106,7 @@ export const conversationList: Conversation[] = [
   {
     id: 5,
     type: 'user',
-    peer_id: 0,
+    peer_id: 6,
     last_message: 'да',
     user: userList[6],
     messages: [],
@@ -114,7 +114,7 @@ export const conversationList: Conversation[] = [
   {
     id: 6,
     type: 'user',
-    peer_id: 0,
+    peer_id: 7,
     last_message: 'Когда ты вернешься в город? Хотелось бы встретиться.',
     user: userList[7],
     messages: [],
@@ -122,7 +122,7 @@ export const conversationList: Conversation[] = [
   {
     id: 7,
     type: 'user',
-    peer_id: 0,
+    peer_id: 8,
     last_message: 'Спасибо!',
     user: userList[8],
     messages: [],
@@ -130,7 +130,7 @@ export const conversationList: Conversation[] = [
   {
     id: 8,
     type: 'user',
-    peer_id: 0,
+    peer_id: 9,
     last_message:
       'Джеку нужно найти няню для собаки, а я не знаю, кто подойдет.',
     user: userList[9],

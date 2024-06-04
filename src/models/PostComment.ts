@@ -7,5 +7,5 @@ export interface PostComment {
   user: User;
   text: string;
   createdAt: Date;
-  updatedDate: Date | null;
+  updated_at: Date | null;
 }

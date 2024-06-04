@@ -3,7 +3,7 @@ import Input from '@/components/Input/Input';
 import { Message } from '@/models/Message';
 import { User } from '@/models/User';
 import { useAuthStore } from '@/store/useAuthStore';
-import { FC, useState } from 'react';
+import { FC, useMemo, useRef, useState } from 'react';
 
 interface MessageContentProps {
   user: User | null;
@@ -13,26 +13,33 @@ interface MessageContentProps {
 const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
   const authStore = useAuthStore();
 
-  let currUser: User | null = user;
+  const currUser = useRef<User | null>(user);
 
-  const diffMessages: Message[][] = [[]];
-  let messageIndex = 0;
+  const inputSendMessage = useRef<HTMLInputElement>(null);
 
-  if (messages) {
-    messages.forEach((message) => {
-      const shouldRenderDiv: boolean = message.user.id !== currUser?.id;
+  const [diffMessages, setDiffMessages] = useState<Message[][]>([[]]);
+
+  useMemo(() => {
+    setDiffMessages([[]]);
+
+    messages?.forEach((message) => {
+      const shouldRenderDiv: boolean = message.user.id !== currUser.current?.id;
 
       if (shouldRenderDiv) {
-        console.log(12313);
-
-        currUser = message.user;
-        messageIndex++;
+        currUser.current = message.user;
+        setDiffMessages((diffMessages) => {
+          diffMessages.push([]);
+          return diffMessages;
+        });
       }
 
-      diffMessages[messageIndex]?.push(message);
+      setDiffMessages((diffMessages) => {
+        diffMessages[diffMessages.length - 1].push(message);
+        return diffMessages;
+      });
     });
     console.log(diffMessages);
-  }
+  }, [messages]);
 
   if (!user) return <center>Выберите чат для общения</center>;
 
@@ -42,7 +49,7 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
         <AvatarText
           img={`${user?.avatar}`}
           name={`${user?.firstName} ${user?.lastName}`}
-          description="Была активна 20 мин. назад"
+          description={`Был${user.sex === 'f' ? 'а' : ''} актив${user.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
         />
       </div>
       <div className="messages-message-messages">
@@ -55,22 +62,21 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
                   const isOwnMessage: boolean =
                     authStore.user?.id === message.user.id;
                   return (
-                    <>
-                      <span
-                        className={`bubble-message${isOwnMessage ? ' own' : ''}`}
-                        key={message.id}
-                      >
-                        {message.text}
-                        <span className="bubble-message-time">
-                          {message.date.toLocaleTimeString().slice(0, 5)}
-                        </span>
+                    <span
+                      className={`bubble-message${isOwnMessage ? ' own' : ''}`}
+                      key={message.id}
+                    >
+                      {message.text}
+                      <span className="bubble-message-time">
+                        {message.date.toLocaleTimeString().slice(0, 5)}
                       </span>
-                    </>
+                    </span>
                   );
                 })}
               </div>
             );
           })}
+
         {/* <div>
           <span className="bubble-message">
             Хмм
@@ -128,7 +134,15 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
         </div> */}
       </div>
       <div className="messages-message-input">
-        <Input placeholder="Напишите сообщение..." />
+        <Input
+          placeholder="Напишите сообщение..."
+          forwardRef={inputSendMessage}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              console.log(e.currentTarget.value);
+            }
+          }}
+        />
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import { User } from '@/models/User';
 
+import UserAvatar0 from '@/assets/images/avatars/users/user0.png';
 import UserAvatar1 from '@/assets/images/avatars/users/user1.png';
 import UserAvatar2 from '@/assets/images/avatars/users/user2.png';
 import UserAvatar3 from '@/assets/images/avatars/users/user3.png';
@@ -12,20 +13,20 @@ import UserAvatar9 from '@/assets/images/avatars/users/user9.png';
 
 export const userList: User[] = [
   {
-    id: -1,
+    id: 0,
     role: 'user',
-    avatar: '',
-    nickname: 'helenahils',
-    firstName: 'Тест',
-    lastName: 'Тестов',
-    email: 'test@gmail.com',
-    password: 'test',
+    avatar: UserAvatar0,
+    nickname: 'healknix',
+    firstName: 'Daniil',
+    lastName: 'Mikhaylov',
+    email: 'daniilmikhaylov@gmail.com',
+    password: 'daniil2003',
     sex: 'm',
-    links: ['test.net'],
-    bio: 'Что-то на тесто-биографическом',
+    links: ['github.com/HealKnix'],
+    bio: 'Просто пытаюсь быть фуллстак разработчиком',
   },
   {
-    id: 0,
+    id: 1,
     role: 'user',
     avatar: UserAvatar1,
     nickname: 'helenahils',
@@ -38,7 +39,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 1,
+    id: 2,
     role: 'user',
     avatar: UserAvatar2,
     nickname: 'charlestran',
@@ -51,7 +52,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 2,
+    id: 3,
     role: 'user',
     avatar: UserAvatar3,
     nickname: 'oscardavis',
@@ -64,7 +65,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 3,
+    id: 4,
     role: 'user',
     avatar: UserAvatar4,
     nickname: 'danielj',
@@ -77,7 +78,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 4,
+    id: 5,
     role: 'user',
     avatar: UserAvatar5,
     nickname: 'carlorojas',
@@ -90,7 +91,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 5,
+    id: 6,
     role: 'user',
     avatar: UserAvatar6,
     nickname: 'giannis',
@@ -103,7 +104,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 6,
+    id: 7,
     role: 'user',
     avatar: UserAvatar7,
     nickname: 'briana',
@@ -116,7 +117,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 7,
+    id: 8,
     role: 'user',
     avatar: UserAvatar8,
     nickname: 'annahills',
@@ -129,7 +130,7 @@ export const userList: User[] = [
     bio: 'Что-то на биографическом',
   },
   {
-    id: 8,
+    id: 9,
     role: 'user',
     avatar: UserAvatar9,
     nickname: 'sharryroy',

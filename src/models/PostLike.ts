@@ -6,5 +6,5 @@ export interface PostLike {
   post: Post;
   user: User;
   createdAt: Date;
-  updatedDate: Date | null;
+  updated_at: Date | null;
 }

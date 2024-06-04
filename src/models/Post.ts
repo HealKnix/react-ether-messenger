@@ -6,7 +6,7 @@ export interface Post {
   images?: string[] | null;
   likeCount: number;
   commentCount: number;
-  createdBy: User;
-  dateCreated: Date;
-  updatedDate: Date | null;
+  created_by: User;
+  created_at: Date;
+  updated_at: Date | null;
 }

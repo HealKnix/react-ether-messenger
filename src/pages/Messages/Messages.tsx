@@ -3,15 +3,14 @@ import { FC, useState } from 'react';
 import Input from '@/components/Input/Input';
 import AvatarText from '@/components/AvatarText/AvatarText';
 
-import './Messages.scss';
 import { conversationList } from '@/models/mock/conversation';
 import MessageContent from './MessageContent/MessageContent';
 import { Message } from '@/models/Message';
 import { User } from '@/models/User';
-import { useAuthStore } from '@/store/useAuthStore';
+
+import './Messages.scss';
 
 const Messages: FC = () => {
-  const authStore = useAuthStore();
   const [user, setUser] = useState<User | null>(null);
   const [messages, setMessages] = useState<Message[] | null>(null);
 
@@ -24,7 +23,6 @@ const Messages: FC = () => {
           </div>
           <div className="messages-user-list">
             {conversationList.map((conversation) => {
-              if (conversation.peer_id === authStore.user?.id) return;
               if (conversation.type === 'user') {
                 return (
                   <AvatarText
