@@ -17,11 +17,11 @@ import Friends from '@/pages/Friends/Friends';
 interface Router {
   path: string;
   name: string;
-  title: string;
+  title?: string;
   component: FC;
-  icon: FC;
-  order: number;
-  show: boolean;
+  icon?: FC;
+  order?: number;
+  show?: boolean;
 }
 
 export const router: Router[] = [

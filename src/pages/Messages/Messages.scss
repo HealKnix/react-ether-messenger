@@ -16,7 +16,18 @@
       flex-direction: column;
 
       & > * {
+        border-right: 0 solid var(--primary-accent-color);
         border-radius: 0;
+        transition: border-right 0.15s ease-in-out;
+      }
+
+      & > *.selected {
+        background-color: var(--primary-accent-light-color);
+        border-right: 3px solid var(--primary-accent-color);
+
+        & > .avatar-text > .avatar-text__description {
+          color: var(--primary-accent-color);
+        }
       }
     }
   }

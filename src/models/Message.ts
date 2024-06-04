@@ -5,5 +5,4 @@ export interface Message {
   text: string;
   date: Date;
   user: User;
-  conversation: number;
 }

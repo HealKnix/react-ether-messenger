@@ -17,6 +17,8 @@ type _ConversationChat = {
 
 export type Conversation = {
   id: number;
+  type: 'user' | 'chat';
   peer_id: number;
-  last_message: Message;
+  last_message: string;
+  messages: Message[];
 } & (_ConversationUser | _ConversationChat);

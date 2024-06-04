@@ -9,6 +9,7 @@ interface AvatarTextProps {
   selected?: boolean;
   description: string;
   descriptionSize?: number;
+  onClick?: (e: unknown) => void;
 }
 
 const AvatarText: FC<AvatarTextProps> = ({
@@ -16,10 +17,14 @@ const AvatarText: FC<AvatarTextProps> = ({
   name,
   description,
   selected,
+  onClick,
 }) => {
   return (
     <>
-      <div className={`avatar-text__wrapper ${selected ? 'selected' : ''}`}>
+      <div
+        className={`avatar-text__wrapper ${selected ? 'selected' : ''}`}
+        onClick={onClick}
+      >
         <div
           className="avatar-img"
           style={{

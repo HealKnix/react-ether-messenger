@@ -12,6 +12,19 @@ import UserAvatar9 from '@/assets/images/avatars/users/user9.png';
 
 export const userList: User[] = [
   {
+    id: -1,
+    role: 'user',
+    avatar: '',
+    nickname: 'helenahils',
+    firstName: 'Тест',
+    lastName: 'Тестов',
+    email: 'test@gmail.com',
+    password: 'test',
+    sex: 'm',
+    links: ['test.net'],
+    bio: 'Что-то на тесто-биографическом',
+  },
+  {
     id: 0,
     role: 'user',
     avatar: UserAvatar1,
@@ -21,6 +34,7 @@ export const userList: User[] = [
     email: 'helenahils@gmail.com',
     password: 'helen1997',
     sex: 'f',
+    links: ['website.net', 'mylink.net', 'yourlink.net'],
     bio: 'Что-то на биографическом',
   },
   {
@@ -33,6 +47,7 @@ export const userList: User[] = [
     email: 'charlestran@gmail.com',
     password: 'charles1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -45,6 +60,7 @@ export const userList: User[] = [
     email: 'oscardavis@gmail.com',
     password: 'oscar1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -57,6 +73,7 @@ export const userList: User[] = [
     email: 'danielj@gmail.com',
     password: 'daniel1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -69,6 +86,7 @@ export const userList: User[] = [
     email: 'carlorojas@gmail.com',
     password: 'carlo1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -81,6 +99,7 @@ export const userList: User[] = [
     email: 'giannisconst@gmail.com',
     password: 'carlo1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -93,6 +112,7 @@ export const userList: User[] = [
     email: 'brianalewis@gmail.com',
     password: 'carlo1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -105,6 +125,7 @@ export const userList: User[] = [
     email: 'annahills@gmail.com',
     password: 'carlo1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
   {
@@ -117,6 +138,7 @@ export const userList: User[] = [
     email: 'sharryroy@gmail.com',
     password: 'carlo1997',
     sex: 'm',
+    links: [],
     bio: 'Что-то на биографическом',
   },
 ];

@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { useAuthStore } from '@/store/useAuthStore';
-import './Profile.scss';
 import Button from '@/components/Button/Button';
 import Input from '@/components/Input/Input';
 import TextArea from '@/components/TextArea/TextArea';
@@ -8,10 +7,13 @@ import { useAccentColorTheme } from '@/store/useAccentColorTheme';
 import RadioForm from '@/components/RadioForm/RadioForm';
 import { useModalStore } from '@/store/useModalStore';
 
+import './Profile.scss';
+
 const Profile: FC = () => {
   const authStore = useAuthStore();
   const modalStore = useModalStore();
   const accentColorTheme = useAccentColorTheme();
+
   return (
     <>
       <div className="profile__wrapper">
@@ -49,23 +51,29 @@ const Profile: FC = () => {
         <Input
           id="nickname-input"
           title="Никнейм"
-          value={`@${authStore.user?.nickname}` ?? '@'}
+          value={`@${authStore.user?.nickname}`}
         />
-        <Input
-          id="email-input"
-          title="Почта"
-          value={authStore.user?.email ?? ''}
-        />
+        <Input id="email-input" title="Почта" value={authStore.user?.email} />
         <Input id="links-input" title="Ссылки">
-          <Input id="links-input" value="website.net"></Input>
-          <Input value="mylink.net"></Input>
-          <Input value="yourlink.net"></Input>
-          <Button color="black">Добавить ещё</Button>
+          <>
+            {authStore.user?.links ? (
+              authStore.user?.links.map((link, index) => (
+                <Input
+                  id={index === 0 ? 'links-input' : ''}
+                  value={`${link}`}
+                  key={`${link}`}
+                />
+              ))
+            ) : (
+              <></>
+            )}
+            <Button color="black">Добавить ещё</Button>
+          </>
         </Input>
         <TextArea
           id="bio-input"
           title="Биография"
-          value={authStore.user?.bio ?? ''}
+          value={`${authStore.user?.bio}`}
         />
         <Button>Сохранить изменения</Button>
       </div>

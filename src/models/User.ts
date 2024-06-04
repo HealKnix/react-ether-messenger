@@ -8,5 +8,6 @@ export interface User {
   sex: string;
   email: string;
   password: string;
+  links: string[];
   bio: string;
 }
