@@ -17,7 +17,7 @@ const SidebarMenu: FC = () => {
           <ul className="side-bar-menu__nav">
             {router
               .filter((route) => route.show)
-              .sort((a, b) => a.order - b.order)
+              .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
               .map((route) => (
                 <li key={route.path}>
                   <Link
@@ -28,7 +28,7 @@ const SidebarMenu: FC = () => {
                         : `nav-${route.name} nav`
                     }
                   >
-                    {<route.icon />}
+                    {route.icon && <route.icon />}
                     <span>{route.title}</span>
                   </Link>
                 </li>

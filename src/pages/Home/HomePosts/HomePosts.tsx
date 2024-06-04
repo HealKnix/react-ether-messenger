@@ -38,7 +38,7 @@ const HomePosts: FC = () => {
                 className="post-functional-like"
                 color="white"
                 onClick={(e) => {
-                  const likeBtn = (e as MouseEvent).target as HTMLButtonElement;
+                  const likeBtn = e.target as HTMLButtonElement;
                   likeBtn.classList.toggle('active');
 
                   if (likeBtn.classList.contains('active')) {
