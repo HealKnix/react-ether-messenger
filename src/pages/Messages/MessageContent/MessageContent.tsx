@@ -53,34 +53,39 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
         />
       </div>
       <div className="messages-message-messages">
-        {!messages && <span>У вас нет переписки с этим пользователем</span>}
-        {messages &&
-          diffMessages.map((messageArray, index) => {
-            return (
-              <div key={index}>
-                {messageArray.map((message) => {
-                  const isOwnMessage: boolean =
-                    authStore.user?.id === message.user.id;
+        {messages?.length === 0 && (
+          <span>У вас нет переписки с этим пользователем</span>
+        )}
+        {messages?.length !== 0 && (
+          <>
+            {diffMessages.map((messageArray, index) => {
+              return (
+                <div key={index}>
+                  {messageArray.map((message) => {
+                    const isOwnMessage: boolean =
+                      authStore.user?.id === message.user.id;
 
-                  return (
-                    <span
-                      className={`bubble-message${isOwnMessage ? ' own' : ''}`}
-                      key={message.id}
-                    >
-                      {message.text}
-                      <span className="bubble-message-time">
-                        {message.date.toLocaleTimeString().slice(0, 5)}
+                    return (
+                      <span
+                        className={`bubble-message${isOwnMessage ? ' own' : ''}`}
+                        key={message.id}
+                      >
+                        {message.text}
+                        <span className="bubble-message-time">
+                          {message.date.toLocaleTimeString().slice(0, 5)}
+                        </span>
                       </span>
-                    </span>
-                  );
-                })}
-              </div>
-            );
-          })}
+                    );
+                  })}
+                </div>
+              );
+            })}
 
-        <div>
-          <span className="message-date">Май 27, 2024, 22:25 PM</span>
-        </div>
+            <div>
+              <span className="message-date">Май 27, 2024, 22:25 PM</span>
+            </div>
+          </>
+        )}
       </div>
       <div className="messages-message-input">
         <Input
