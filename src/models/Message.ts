@@ -4,5 +4,6 @@ export interface Message {
   id: number;
   text: string;
   date: Date;
-  user: User;
+  peer_id: number;
+  user: User | null;
 }

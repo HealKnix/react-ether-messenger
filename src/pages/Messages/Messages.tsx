@@ -5,14 +5,20 @@ import AvatarText from '@/components/AvatarText/AvatarText';
 
 import { conversationList } from '@/models/mock/conversation';
 import MessageContent from './MessageContent/MessageContent';
-import { Message } from '@/models/Message';
 import { User } from '@/models/User';
 
 import './Messages.scss';
+import { useNavigate } from 'react-router-dom';
+import { useFetchUsers } from '@/hooks/api/useFetchUsers';
+import { useFetchPeers } from '@/hooks/api/useFetchPeers';
+import { useFetchMessages } from '@/hooks/api/useFetchMessages';
 
 const Messages: FC = () => {
+  const navigate = useNavigate();
+  const { getMessagesByPeerId } = useFetchMessages();
+  const { getUserById } = useFetchUsers();
+  const { getPeerById } = useFetchPeers();
   const [user, setUser] = useState<User | null>(null);
-  const [messages, setMessages] = useState<Message[] | null>(null);
 
   return (
     <>
@@ -23,28 +29,38 @@ const Messages: FC = () => {
           </div>
           <div className="messages-user-list">
             {conversationList.map((conversation) => {
-              if (conversation.type === 'user') {
+              const peer = getPeerById(conversation.peer_id);
+              if (peer?.type === 'user') {
+                const userConversation =
+                  getUserById(conversation.peer_id) ?? null;
                 return (
                   <AvatarText
                     key={conversation.id}
-                    selected={user?.id === conversation.user.id}
-                    img={conversation.user.avatar}
-                    name={`${conversation.user.firstName} ${conversation.user.lastName}`}
+                    selected={user?.id === userConversation?.id}
+                    img={`${userConversation?.avatar}`}
+                    name={`${userConversation?.firstName} ${userConversation?.lastName}`}
                     description={conversation.last_message}
                     onClick={() => {
-                      setUser(conversation.user);
-                      setMessages(conversation.messages);
+                      setUser(userConversation);
+                      const messages = getMessagesByPeerId(
+                        conversation.peer_id,
+                      );
+                      console.log(messages);
+
+                      navigate(`conv/${conversation.peer_id}`, {
+                        replace: true,
+                      });
                     }}
                   />
                 );
-              } else if (conversation.type === 'chat') {
+              } else if (peer?.type === 'chat') {
                 // TODO: сделать потом для чата
               }
             })}
           </div>
         </div>
         <div className="messages-message__wrapper">
-          <MessageContent user={user} messages={messages} />
+          <MessageContent />
         </div>
       </div>
     </>

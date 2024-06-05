@@ -1,29 +1,44 @@
 import AvatarText from '@/components/AvatarText/AvatarText';
 import Input from '@/components/Input/Input';
+import { useFetchMessages } from '@/hooks/api/useFetchMessages';
+import { useFetchPeers } from '@/hooks/api/useFetchPeers';
+import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { Message } from '@/models/Message';
 import { User } from '@/models/User';
 import { useAuthStore } from '@/store/useAuthStore';
-import { FC, useMemo, useRef, useState } from 'react';
+import { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-interface MessageContentProps {
-  user: User | null;
-  messages: Message[] | null;
-}
+const MessageContent: FC = () => {
+  const paramsQuery = useParams();
 
-const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
   const authStore = useAuthStore();
+  const { messages, addMessage } = useFetchMessages();
+  const { peers, addPeer } = useFetchPeers();
+  const { getUserById } = useFetchUsers();
 
-  const currUser = useRef<User | null>(user);
+  const [userConversation, setUserConvesation] = useState(
+    getUserById(parseInt(paramsQuery.id ?? '0')),
+  );
+  const currUser = useRef<User | null>(
+    getUserById(parseInt(paramsQuery.id ?? '0')) ?? null,
+  );
 
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
   const [diffMessages, setDiffMessages] = useState<Message[][]>([]);
 
+  useEffect(() => {
+    setUserConvesation(() => getUserById(parseInt(paramsQuery.id ?? '0')));
+    console.log(userConversation);
+  }, []);
+
   useMemo(() => {
     setDiffMessages([[]]);
 
     messages?.forEach((message) => {
-      const shouldRenderDiv: boolean = message.user.id !== currUser.current?.id;
+      const shouldRenderDiv: boolean =
+        message.user?.id !== currUser.current?.id;
 
       if (shouldRenderDiv) {
         currUser.current = message.user;
@@ -38,18 +53,17 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
         return diffMessages;
       });
     });
-    console.log(diffMessages);
   }, [messages]);
 
-  if (!user) return <center>Выберите чат для общения</center>;
+  if (!userConversation) return <center>Выберите чат для общения</center>;
 
   return (
     <>
       <div className="messages-message-header">
         <AvatarText
-          img={`${user?.avatar}`}
-          name={`${user?.firstName} ${user?.lastName}`}
-          description={`Был${user.sex === 'f' ? 'а' : ''} актив${user.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
+          img={`${userConversation?.avatar}`}
+          name={`${userConversation?.firstName} ${userConversation?.lastName}`}
+          description={`Был${userConversation.sex === 'f' ? 'а' : ''} актив${userConversation.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
         />
       </div>
       <div className="messages-message-messages">
@@ -63,7 +77,7 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
                 <div key={index}>
                   {messageArray.map((message) => {
                     const isOwnMessage: boolean =
-                      authStore.user?.id === message.user.id;
+                      authStore.user?.id === message.user?.id;
 
                     return (
                       <span
@@ -93,7 +107,20 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
           forwardRef={inputSendMessage}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              console.log(e.currentTarget.value);
+              addPeer({
+                id: peers.length,
+                peer_id: parseInt(paramsQuery.id ?? '0'),
+                type: 'user',
+                message_id: messages?.length ?? -1,
+              });
+              addMessage({
+                id: messages?.length ?? -1,
+                text: e.currentTarget.value,
+                date: new Date(),
+                user: authStore.user,
+                peer_id: parseInt(paramsQuery.id ?? '0'),
+              });
+              e.currentTarget.value = '';
             }
           }}
         />

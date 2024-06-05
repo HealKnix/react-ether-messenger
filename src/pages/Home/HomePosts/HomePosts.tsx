@@ -5,15 +5,17 @@ import CommentSVG from '@/components/SVG/CommentSVG';
 import { FC } from 'react';
 
 import './HomePosts.scss';
-import { postList } from '@/models/mock/post';
 import { getPastTimeString } from '@/utils/getPastTimeString';
 import Button from '@/components/Button/Button';
+import { useFetchPosts } from '@/hooks/api/useFetchPosts';
 
 const HomePosts: FC = () => {
+  const posts = useFetchPosts();
+
   return (
     <>
       <div className="posts__wrapper">
-        {postList.map((post) => (
+        {posts.map((post) => (
           <div className="post" key={post.id}>
             <AvatarText
               img={post.created_by.avatar}
