@@ -15,11 +15,7 @@ import { User } from '@/models/User';
 
 const SignUp: FC = () => {
   const navigate = useNavigate();
-<<<<<<< HEAD
   const { users } = useFetchUsers();
-=======
-  const users = useFetchUsers();
->>>>>>> 8d6366642bc0f448de7d414a7452f74ae24ed8f8
   const authStore = useAuthStore();
 
   const [inputEmail, setInputEmail] = useState('');
