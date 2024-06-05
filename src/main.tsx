@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './pages/App/App.tsx';
 import './index.scss';
-import { BrowserRouter } from 'react-router-dom';
 import { setThemeColor } from './utils/setThemeColor.ts';
 import Modal from './components/Modal/Modal.tsx';
+import { BrowserRouter } from 'react-router-dom';
 
 setThemeColor(localStorage.getItem('accent-color-theme'));
 

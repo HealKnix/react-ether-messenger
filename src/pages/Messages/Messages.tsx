@@ -9,8 +9,10 @@ import { Message } from '@/models/Message';
 import { User } from '@/models/User';
 
 import './Messages.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Messages: FC = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
   const [messages, setMessages] = useState<Message[] | null>(null);
 
@@ -34,6 +36,9 @@ const Messages: FC = () => {
                     onClick={() => {
                       setUser(conversation.user);
                       setMessages(conversation.messages);
+                      navigate(`conv/${conversation.peer_id}`, {
+                        replace: true,
+                      });
                     }}
                   />
                 );

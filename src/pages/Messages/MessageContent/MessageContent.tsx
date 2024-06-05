@@ -6,14 +6,14 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { FC, useMemo, useRef, useState } from 'react';
 
 interface MessageContentProps {
-  user: User | null;
-  messages: Message[] | null;
+  user?: User | null;
+  messages?: Message[] | null;
 }
 
 const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
   const authStore = useAuthStore();
 
-  const currUser = useRef<User | null>(user);
+  const currUser = useRef<User | null>(user ?? null);
 
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
@@ -38,7 +38,6 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
         return diffMessages;
       });
     });
-    console.log(diffMessages);
   }, [messages]);
 
   if (!user) return <center>Выберите чат для общения</center>;
@@ -94,6 +93,7 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               console.log(e.currentTarget.value);
+              e.currentTarget.value = '';
             }
           }}
         />

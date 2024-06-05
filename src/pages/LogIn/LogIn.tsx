@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Input from '@/components/Input/Input';
 import Button from '@/components/Button/Button';
@@ -10,9 +10,15 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { userList } from '@/models/mock/user';
 
 import './LogIn.scss';
+import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 
 const LogIn: FC = () => {
+  const users = useFetchUsers();
   const authStore = useAuthStore();
+  const navigate = useNavigate();
+
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputPassword, setInputPassword] = useState('');
 
   return (
     <>
@@ -26,19 +32,55 @@ const LogIn: FC = () => {
           </div>
 
           <form
-            method=""
+            autoComplete="false"
             onSubmit={(e) => {
               e.preventDefault();
             }}
           >
-            <Input type="email" title="Почта" movablePlaceholder required />
-            <Input type="password" title="Пароль" movablePlaceholder required />
-            <Button>Войти</Button>
+            <Input
+              type="email"
+              title="Почта"
+              value={inputEmail}
+              onChange={(e) => setInputEmail(() => e.target.value)}
+              movablePlaceholder
+              required
+            />
+            <Input
+              type="password"
+              title="Пароль"
+              value={inputPassword}
+              onChange={(e) => setInputPassword(() => e.target.value)}
+              movablePlaceholder
+              required
+            />
+            <Button
+              onClick={() => {
+                if (!inputEmail || !inputPassword) return;
+
+                users.forEach((user) => {
+                  if (
+                    user.email === inputEmail &&
+                    user.password === inputPassword
+                  ) {
+                    authStore.setUser(user);
+                    localStorage.setItem('user', JSON.stringify(user));
+                    navigate('/', { replace: true });
+                  }
+                });
+
+                if (!authStore.isAuth()) {
+                  alert('Такого пользователя не существует');
+                }
+              }}
+            >
+              Войти
+            </Button>
             <Button
               color="black"
               onClick={() => {
                 authStore.setUser(userList[0]);
                 localStorage.setItem('user', JSON.stringify(userList[0]));
+                navigate('/', { replace: true });
               }}
             >
               Вход под тестовым пользователем
