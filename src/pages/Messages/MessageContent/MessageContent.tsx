@@ -9,20 +9,31 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+<<<<<<< HEAD
 const MessageContent: FC = () => {
   const paramsQuery = useParams();
+=======
+interface MessageContentProps {
+  user?: User | null;
+  messages?: Message[] | null;
+}
+>>>>>>> 8d6366642bc0f448de7d414a7452f74ae24ed8f8
 
   const authStore = useAuthStore();
   const { messages, addMessage } = useFetchMessages();
   const { peers, addPeer } = useFetchPeers();
   const { getUserById } = useFetchUsers();
 
+<<<<<<< HEAD
   const [userConversation, setUserConvesation] = useState(
     getUserById(parseInt(paramsQuery.id ?? '0')),
   );
   const currUser = useRef<User | null>(
     getUserById(parseInt(paramsQuery.id ?? '0')) ?? null,
   );
+=======
+  const currUser = useRef<User | null>(user ?? null);
+>>>>>>> 8d6366642bc0f448de7d414a7452f74ae24ed8f8
 
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
@@ -107,6 +118,7 @@ const MessageContent: FC = () => {
           forwardRef={inputSendMessage}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
+<<<<<<< HEAD
               addPeer({
                 id: peers.length,
                 peer_id: parseInt(paramsQuery.id ?? '0'),
@@ -120,6 +132,9 @@ const MessageContent: FC = () => {
                 user: authStore.user,
                 peer_id: parseInt(paramsQuery.id ?? '0'),
               });
+=======
+              console.log(e.currentTarget.value);
+>>>>>>> 8d6366642bc0f448de7d414a7452f74ae24ed8f8
               e.currentTarget.value = '';
             }
           }}

@@ -9,6 +9,7 @@ export const useFetchUsers = () => {
     setUsers(() => [...userList]);
   }, []);
 
+<<<<<<< HEAD
   const addUser = (user: User) => {
     userList.push(user);
   };
@@ -18,4 +19,7 @@ export const useFetchUsers = () => {
   };
 
   return { users, addUser, getUserById };
+=======
+  return users;
+>>>>>>> 8d6366642bc0f448de7d414a7452f74ae24ed8f8
 };

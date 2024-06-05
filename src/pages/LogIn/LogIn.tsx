@@ -13,7 +13,11 @@ import './LogIn.scss';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 
 const LogIn: FC = () => {
+<<<<<<< HEAD
   const { users } = useFetchUsers();
+=======
+  const users = useFetchUsers();
+>>>>>>> 8d6366642bc0f448de7d414a7452f74ae24ed8f8
   const authStore = useAuthStore();
   const navigate = useNavigate();
 
