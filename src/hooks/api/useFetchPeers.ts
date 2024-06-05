@@ -6,7 +6,7 @@ export const useFetchPeers = () => {
   const [peers, setPeers] = useState<Peer[]>([]);
 
   useEffect(() => {
-    setPeers(() => [...peerList]);
+    setPeers(() => peerList);
   }, []);
 
   const addPeer = (peer: Peer) => {

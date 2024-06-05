@@ -6,7 +6,7 @@ export const useFetchUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    setUsers(() => [...userList]);
+    setUsers(() => userList);
   }, []);
 
   const addUser = (user: User) => {

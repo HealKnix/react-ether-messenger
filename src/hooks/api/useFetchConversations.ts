@@ -6,7 +6,7 @@ export const useFetchMessages = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);
 
   useEffect(() => {
-    setConversations(() => [...conversationList]);
+    setConversations(() => conversationList);
   }, []);
 
   const addConversation = (Conversation: Conversation) => {

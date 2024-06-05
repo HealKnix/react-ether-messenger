@@ -11,11 +11,9 @@ import './Messages.scss';
 import { useNavigate } from 'react-router-dom';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
-import { useFetchMessages } from '@/hooks/api/useFetchMessages';
 
 const Messages: FC = () => {
   const navigate = useNavigate();
-  const { getMessagesByPeerId } = useFetchMessages();
   const { getUserById } = useFetchUsers();
   const { getPeerById } = useFetchPeers();
   const [user, setUser] = useState<User | null>(null);
@@ -42,11 +40,6 @@ const Messages: FC = () => {
                     description={conversation.last_message}
                     onClick={() => {
                       setUser(userConversation);
-                      const messages = getMessagesByPeerId(
-                        conversation.peer_id,
-                      );
-                      console.log(messages);
-
                       navigate(`conv/${conversation.peer_id}`, {
                         replace: true,
                       });

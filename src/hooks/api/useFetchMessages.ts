@@ -6,11 +6,11 @@ export const useFetchMessages = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    setMessages(() => [...messageList]);
+    setMessages(() => messageList);
   }, []);
 
-  const addMessage = (Message: Message) => {
-    messageList.push(Message);
+  const addMessage = (message: Message) => {
+    messageList.push(message);
   };
 
   const getMessagesByPeerId = (id: number) => {

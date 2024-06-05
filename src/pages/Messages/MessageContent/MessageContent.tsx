@@ -4,75 +4,78 @@ import { useFetchMessages } from '@/hooks/api/useFetchMessages';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { Message } from '@/models/Message';
-import { User } from '@/models/User';
 import { useAuthStore } from '@/store/useAuthStore';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const MessageContent: FC = () => {
-  const paramsQuery = useParams();
+  const { id } = useParams();
+
+  const paramsQuery = useMemo(() => {
+    return {
+      id: parseInt(id ?? '-1'),
+    };
+  }, [id]);
 
   const authStore = useAuthStore();
-  const { messages, addMessage } = useFetchMessages();
+  const { messages, addMessage, getMessagesByPeerId } = useFetchMessages();
   const { peers, addPeer } = useFetchPeers();
   const { getUserById } = useFetchUsers();
 
-  const [userConversation, setUserConvesation] = useState(
-    getUserById(parseInt(paramsQuery.id ?? '0')),
-  );
-  const currUser = useRef<User | null>(
-    getUserById(parseInt(paramsQuery.id ?? '0')) ?? null,
+  const currUser = useRef(getUserById(paramsQuery.id) ?? null);
+  const userConversation = useRef(getUserById(paramsQuery.id ?? null));
+
+  const [messagesConversation, setMessagesConversation] = useState(
+    getMessagesByPeerId(paramsQuery.id ?? []),
   );
 
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
-  const [diffMessages, setDiffMessages] = useState<Message[][]>([]);
+  const messagesByDifferentUsers = useRef<Message[][]>([]);
 
   useEffect(() => {
-    setUserConvesation(() => getUserById(parseInt(paramsQuery.id ?? '0')));
-    console.log(userConversation);
-  }, []);
+    setMessagesConversation(getMessagesByPeerId(paramsQuery.id));
+  }, [paramsQuery, messages, messagesByDifferentUsers]);
 
-  useMemo(() => {
-    setDiffMessages([[]]);
+  useEffect(() => {
+    messagesByDifferentUsers.current = [];
 
-    messages?.forEach((message) => {
+    userConversation.current = getUserById(paramsQuery.id);
+
+    messagesConversation.forEach((message) => {
       const shouldRenderDiv: boolean =
         message.user?.id !== currUser.current?.id;
 
       if (shouldRenderDiv) {
         currUser.current = message.user;
-        setDiffMessages((diffMessages) => {
-          diffMessages.push([]);
-          return diffMessages;
-        });
+        messagesByDifferentUsers.current.push([]);
       }
 
-      setDiffMessages((diffMessages) => {
-        diffMessages[diffMessages.length - 1].push(message);
-        return diffMessages;
-      });
+      messagesByDifferentUsers.current[
+        messagesByDifferentUsers.current.length - 1
+      ]?.push(message);
     });
-  }, [messages]);
+  }, [getUserById, messagesConversation, paramsQuery, messages]);
 
-  if (!userConversation) return <center>Выберите чат для общения</center>;
+  if (!userConversation.current)
+    return <center>Выберите чат для общения</center>;
 
   return (
     <>
       <div className="messages-message-header">
         <AvatarText
-          img={`${userConversation?.avatar}`}
-          name={`${userConversation?.firstName} ${userConversation?.lastName}`}
-          description={`Был${userConversation.sex === 'f' ? 'а' : ''} актив${userConversation.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
+          img={`${userConversation.current?.avatar}`}
+          name={`${userConversation.current?.firstName} ${userConversation.current?.lastName}`}
+          description={`Был${userConversation.current?.sex === 'f' ? 'а' : ''} актив${userConversation.current?.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
         />
       </div>
       <div className="messages-message-messages">
-        {messages?.length === 0 && (
+        {messagesConversation.length === 0 && (
           <span>У вас нет переписки с этим пользователем</span>
         )}
-        {messages?.length !== 0 && (
+        {messagesConversation.length !== 0 && (
           <>
-            {diffMessages.map((messageArray, index) => {
+            {messagesByDifferentUsers.current.map((messageArray, index) => {
               return (
                 <div key={index}>
                   {messageArray.map((message) => {
@@ -109,7 +112,7 @@ const MessageContent: FC = () => {
             if (e.key === 'Enter') {
               addPeer({
                 id: peers.length,
-                peer_id: parseInt(paramsQuery.id ?? '0'),
+                peer_id: paramsQuery.id,
                 type: 'user',
                 message_id: messages?.length ?? -1,
               });
@@ -118,7 +121,7 @@ const MessageContent: FC = () => {
                 text: e.currentTarget.value,
                 date: new Date(),
                 user: authStore.user,
-                peer_id: parseInt(paramsQuery.id ?? '0'),
+                peer_id: paramsQuery.id,
               });
               e.currentTarget.value = '';
             }

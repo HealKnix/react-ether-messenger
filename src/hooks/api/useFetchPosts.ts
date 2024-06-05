@@ -6,7 +6,7 @@ export const useFetchPosts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    setPosts(() => [...postList]);
+    setPosts(() => postList);
   }, []);
 
   return posts;
