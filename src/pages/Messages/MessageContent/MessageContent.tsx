@@ -17,7 +17,7 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
 
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
-  const [diffMessages, setDiffMessages] = useState<Message[][]>([[]]);
+  const [diffMessages, setDiffMessages] = useState<Message[][]>([]);
 
   useMemo(() => {
     setDiffMessages([[]]);
@@ -61,6 +61,7 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
                 {messageArray.map((message) => {
                   const isOwnMessage: boolean =
                     authStore.user?.id === message.user.id;
+
                   return (
                     <span
                       className={`bubble-message${isOwnMessage ? ' own' : ''}`}
@@ -77,61 +78,9 @@ const MessageContent: FC<MessageContentProps> = ({ user, messages }) => {
             );
           })}
 
-        {/* <div>
-          <span className="bubble-message">
-            Хмм
-            <span className="bubble-message-time">22:34</span>
-          </span>
-          <span className="bubble-message">
-            Кажется, я поняла
-            <span className="bubble-message-time">22:34</span>
-          </span>
-          <span className="bubble-message">
-            Если у меня возникнут вопросы, я обращусь в тех поддержку
-            <span className="bubble-message-time">22:34</span>
-          </span>
-        </div>
-
         <div>
-          <span className="bubble-message own">
-            Просто
-            <span className="bubble-message-time">22:32</span>
-          </span>
-          <span className="bubble-message own">
-            Как в любом другом мессенджере пиши сообщения и отправляй их
-            <span className="bubble-message-time">22:32</span>
-          </span>
-          <span className="bubble-message own">
-            И бум!
-            <span className="bubble-message-time">22:33</span>
-          </span>
+          <span className="message-date">Май 27, 2024, 22:25 PM</span>
         </div>
-
-        <div>
-          <span className="bubble-message">
-            А?
-            <span className="bubble-message-time">22:30</span>
-          </span>
-          <span className="bubble-message">
-            Круто
-            <span className="bubble-message-time">22:30</span>
-          </span>
-          <span className="bubble-message">
-            Как это работает?
-            <span className="bubble-message-time">22:31</span>
-          </span>
-        </div>
-
-        <div>
-          <span className="message-date">Май 27, 2024, 22:30 PM</span>
-        </div>
-
-        <div>
-          <span className="bubble-message own">
-            Это основной шаблон чата
-            <span className="bubble-message-time">22:25</span>
-          </span>
-        </div> */}
       </div>
       <div className="messages-message-input">
         <Input
