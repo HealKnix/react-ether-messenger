@@ -38,10 +38,18 @@
 *::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-  background-color: var(--text-additional-color);
 }
 
 *::-webkit-scrollbar-thumb {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-accent-color) 25%,
+    transparent 0%
+  );
+  border-radius: 1000px;
+}
+
+*:hover::-webkit-scrollbar-thumb {
   background-color: var(--primary-accent-color);
 }
 

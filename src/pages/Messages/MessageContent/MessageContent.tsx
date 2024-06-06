@@ -10,6 +10,8 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './MessageContent.scss';
+
 const MessageContent: FC = () => {
   const { id } = useParams();
 
@@ -78,7 +80,7 @@ const MessageContent: FC = () => {
         return messagesByDifferentUsers;
       });
     });
-  }, [id]);
+  }, [id, messages]);
 
   if (!userConversation) return <center>Выберите чат для общения</center>;
 

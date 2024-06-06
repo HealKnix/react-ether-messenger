@@ -6,15 +6,12 @@ import AvatarText from '@/components/AvatarText/AvatarText';
 import MessageContent from './MessageContent/MessageContent';
 
 import './Messages.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
 import { useFetchConversations } from '@/hooks/api/useFetchConversations';
 
 const Messages: FC = () => {
-  const location = useLocation();
-
-  const navigate = useNavigate();
   const { conversations } = useFetchConversations();
   const { getUserById } = useFetchUsers();
   const { getPeerById } = useFetchPeers();
@@ -34,20 +31,17 @@ const Messages: FC = () => {
                   getUserById(conversation.peer_id) ?? null;
 
                 return (
-                  <AvatarText
+                  <NavLink
+                    to={`conv/${conversation.peer_id}`}
                     key={conversation.id}
-                    selected={location.pathname.includes(
-                      `/conv/${conversation.peer_id}`,
-                    )}
-                    img={`${userConversation?.avatar}`}
-                    name={`${userConversation?.firstName} ${userConversation?.lastName}`}
-                    description={conversation.last_message}
-                    onClick={() => {
-                      navigate(`conv/${conversation.peer_id}`, {
-                        replace: true,
-                      });
-                    }}
-                  />
+                  >
+                    <AvatarText
+                      key={conversation.id}
+                      img={`${userConversation?.avatar}`}
+                      name={`${userConversation?.firstName} ${userConversation?.lastName}`}
+                      description={conversation.last_message}
+                    />
+                  </NavLink>
                 );
               } else if (peer?.type === 'chat') {
                 // TODO: сделать потом для чата
