@@ -10,6 +10,7 @@ import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import './MessageContent.scss';
+import { Peer } from '@/models/Peer';
 
 interface MessageContentProps {
   updateLastMessage?: (peerId: number, message: string) => void;
@@ -18,20 +19,16 @@ interface MessageContentProps {
 const MessageContent: FC<MessageContentProps> = ({ updateLastMessage }) => {
   const { id } = useParams();
 
-  const paramsQuery = useMemo(() => {
-    return {
-      id: parseInt(id ?? '-1'),
-    };
-  }, [id]);
+  const paramsQuery = useMemo(() => ({ id: parseInt(id ?? '-1') }), [id]);
 
   const authStore = useAuthStore();
   const { messages, addMessage, getMessagesByPeerId } = useFetchMessages();
   const { peers, addPeer } = useFetchPeers();
   const { getUserById } = useFetchUsers();
 
-  const [userConversation, setUserConversation] = useState(
-    getUserById(paramsQuery.id ?? null),
-  );
+  const [userConversation, setUserConversation] = useState<
+    User | undefined | null
+  >(getUserById(paramsQuery.id));
 
   const [messagesByDifferentUsers, setMessagesByDifferentUsers] = useState<
     Message[][]
@@ -40,50 +37,50 @@ const MessageContent: FC<MessageContentProps> = ({ updateLastMessage }) => {
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
   const sendMessageHandler = (text: string) => {
-    addPeer({
-      id: peers.length,
-      peer_id: paramsQuery.id,
-      type: 'user',
-      message_id: messages?.length ?? -1,
-    });
-    addMessage({
+    const newMessage: Message = {
       id: messages?.length ?? -1,
       text: text,
       date: new Date(),
       user: authStore.user,
       peer_id: paramsQuery.id,
-    });
+    };
+
+    const newPeer: Peer = {
+      id: peers.length,
+      peer_id: paramsQuery.id,
+      message_id: newMessage.id,
+      type: 'user',
+    };
+
+    addMessage(newMessage);
+    addPeer(newPeer);
+
     if (updateLastMessage) {
       updateLastMessage(paramsQuery.id, text);
     }
   };
 
-  useEffect(() => {
-    setMessagesByDifferentUsers([]);
-    setUserConversation(getUserById(paramsQuery.id));
+  const organizeMessagesByUser = (messages: Message[]) => {
+    let currentUserMessage: User | null = null;
+    const groupedMessages: Message[][] = [];
 
-    let currUserMessage: User | null = null;
+    messages.forEach((message) => {
+      if (message.user?.id !== currentUserMessage?.id) {
+        currentUserMessage = message.user;
+        groupedMessages.push([]);
+      }
+      groupedMessages[groupedMessages.length - 1].push(message);
+    });
+
+    return groupedMessages;
+  };
+
+  useEffect(() => {
+    setUserConversation(getUserById(paramsQuery.id));
 
     const messagesConversation = getMessagesByPeerId(paramsQuery.id);
 
-    messagesConversation.forEach((message) => {
-      const isOwnMessage: boolean = message.user?.id === currUserMessage?.id;
-
-      if (!isOwnMessage) {
-        currUserMessage = message.user;
-        setMessagesByDifferentUsers((messagesByDifferentUsers) => [
-          ...messagesByDifferentUsers,
-          [],
-        ]);
-      }
-
-      setMessagesByDifferentUsers((messagesByDifferentUsers) => {
-        messagesByDifferentUsers[messagesByDifferentUsers.length - 1]?.push(
-          message,
-        );
-        return messagesByDifferentUsers;
-      });
-    });
+    setMessagesByDifferentUsers(organizeMessagesByUser(messagesConversation));
   }, [id, messages]);
 
   if (!userConversation) return <center>Выберите чат для общения</center>;
@@ -92,45 +89,38 @@ const MessageContent: FC<MessageContentProps> = ({ updateLastMessage }) => {
     <>
       <div className="messages-message-header">
         <AvatarText
-          img={`${userConversation.avatar}`}
+          img={userConversation.avatar}
           name={`${userConversation.firstName} ${userConversation.lastName}`}
           description={`Был${userConversation.sex === 'f' ? 'а' : ''} актив${userConversation.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
         />
       </div>
       <div className="messages-message-messages">
-        {messagesByDifferentUsers.length === 0 && (
+        {messagesByDifferentUsers.length === 0 ? (
           <span>У вас нет переписки с этим пользователем</span>
-        )}
-        {messagesByDifferentUsers.length !== 0 && (
-          <>
-            {messagesByDifferentUsers.map((messageArray, index) => {
-              return (
-                <div key={index}>
-                  {messageArray.map((message) => {
-                    const isOwnMessage: boolean =
-                      authStore.user?.id === message.user?.id;
+        ) : (
+          messagesByDifferentUsers.map((messageArray, index) => (
+            <div key={index}>
+              {messageArray.map((message) => {
+                const isOwnMessage = authStore.user?.id === message.user?.id;
 
-                    return (
-                      <span
-                        className={`bubble-message${isOwnMessage ? ' own' : ''}`}
-                        key={message.id + 25252}
-                      >
-                        {message.text}
-                        <span className="bubble-message-time">
-                          {message.date.toLocaleTimeString().slice(0, 5)}
-                        </span>
-                      </span>
-                    );
-                  })}
-                </div>
-              );
-            })}
-
-            <div>
-              <span className="message-date">Май 27, 2024, 22:25 PM</span>
+                return (
+                  <span
+                    className={`bubble-message${isOwnMessage ? ' own' : ''}`}
+                    key={message.id}
+                  >
+                    {message.text}
+                    <span className="bubble-message-time">
+                      {message.date.toLocaleTimeString().slice(0, 5)}
+                    </span>
+                  </span>
+                );
+              })}
             </div>
-          </>
+          ))
         )}
+        <div>
+          <span className="message-date">Май 27, 2024, 22:25 PM</span>
+        </div>
       </div>
       <div className="messages-message-input">
         <Input
