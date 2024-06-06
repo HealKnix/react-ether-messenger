@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import './MessageContent.scss';
 
 interface MessageContentProps {
-  updateLastMessage: (peerId: number, message: string) => void;
+  updateLastMessage?: (peerId: number, message: string) => void;
 }
 
 const MessageContent: FC<MessageContentProps> = ({ updateLastMessage }) => {
@@ -53,7 +53,9 @@ const MessageContent: FC<MessageContentProps> = ({ updateLastMessage }) => {
       user: authStore.user,
       peer_id: paramsQuery.id,
     });
-    updateLastMessage(paramsQuery.id, text);
+    if (updateLastMessage) {
+      updateLastMessage(paramsQuery.id, text);
+    }
   };
 
   useEffect(() => {
