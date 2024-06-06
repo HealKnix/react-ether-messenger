@@ -8,9 +8,9 @@ import { User } from '@/models/User';
 import { useAuthStore } from '@/store/useAuthStore';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Peer } from '@/models/Peer';
 
 import './MessageContent.scss';
-import { Peer } from '@/models/Peer';
 
 interface MessageContentProps {
   updateLastMessage?: (peerId: number, message: string) => void;
