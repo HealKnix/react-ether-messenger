@@ -12,7 +12,8 @@ import { useFetchPeers } from '@/hooks/api/useFetchPeers';
 import { useFetchConversations } from '@/hooks/api/useFetchConversations';
 
 const Messages: FC = () => {
-  const { conversations } = useFetchConversations();
+  const { conversations, updateConversationLastMessageByPeerId } =
+    useFetchConversations();
   const { getUserById } = useFetchUsers();
   const { getPeerById } = useFetchPeers();
 
@@ -50,7 +51,9 @@ const Messages: FC = () => {
           </div>
         </div>
         <div className="messages-message__wrapper">
-          <MessageContent />
+          <MessageContent
+            updateLastMessage={updateConversationLastMessageByPeerId}
+          />
         </div>
       </div>
     </>

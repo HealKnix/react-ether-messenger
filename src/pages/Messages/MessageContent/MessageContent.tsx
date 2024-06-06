@@ -1,6 +1,5 @@
 import AvatarText from '@/components/AvatarText/AvatarText';
 import Input from '@/components/Input/Input';
-import { useFetchConversations } from '@/hooks/api/useFetchConversations';
 import { useFetchMessages } from '@/hooks/api/useFetchMessages';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
@@ -12,7 +11,11 @@ import { useParams } from 'react-router-dom';
 
 import './MessageContent.scss';
 
-const MessageContent: FC = () => {
+interface MessageContentProps {
+  updateLastMessage: (peerId: number, message: string) => void;
+}
+
+const MessageContent: FC<MessageContentProps> = ({ updateLastMessage }) => {
   const { id } = useParams();
 
   const paramsQuery = useMemo(() => {
@@ -23,7 +26,6 @@ const MessageContent: FC = () => {
 
   const authStore = useAuthStore();
   const { messages, addMessage, getMessagesByPeerId } = useFetchMessages();
-  const { updateConversationLastMessageByPeerId } = useFetchConversations();
   const { peers, addPeer } = useFetchPeers();
   const { getUserById } = useFetchUsers();
 
@@ -51,7 +53,7 @@ const MessageContent: FC = () => {
       user: authStore.user,
       peer_id: paramsQuery.id,
     });
-    updateConversationLastMessageByPeerId(paramsQuery.id, text);
+    updateLastMessage(paramsQuery.id, text);
   };
 
   useEffect(() => {
