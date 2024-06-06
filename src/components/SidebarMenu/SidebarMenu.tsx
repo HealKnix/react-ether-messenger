@@ -1,9 +1,10 @@
+import './SidebarMenu.scss';
+
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { router } from '@/routes';
-import Logo from '@/components/Logo/Logo';
 
-import './SidebarMenu.scss';
+import Logo from '@/components/Logo/Logo';
+import { router } from '@/routes';
 
 const SidebarMenu: FC = () => {
   const location = useLocation();

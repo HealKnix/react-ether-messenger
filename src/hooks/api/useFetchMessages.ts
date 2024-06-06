@@ -1,6 +1,7 @@
+import { useMemo, useState } from 'react';
+
 import { Message } from '@/models/Message';
 import { messageList } from '@/models/mock/message';
-import { useMemo, useState } from 'react';
 
 export const useFetchMessages = () => {
   const [messages, setMessages] = useState<Message[]>([]);

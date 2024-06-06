@@ -1,6 +1,7 @@
+import './HomeNavigation.scss';
+
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './HomeNavigation.scss';
 
 const HomeNavigation: FC = () => {
   const location = useLocation();

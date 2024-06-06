@@ -1,6 +1,7 @@
-import { Peer } from '@/models/Peer';
-import { peerList } from '@/models/mock/peer';
 import { useMemo, useState } from 'react';
+
+import { peerList } from '@/models/mock/peer';
+import { Peer } from '@/models/Peer';
 
 export const useFetchPeers = () => {
   const [peers, setPeers] = useState<Peer[]>([]);

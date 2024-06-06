@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './TextArea.scss';
+
+import { FC } from 'react';
 
 interface ButtonProps {
   id: string;

@@ -1,5 +1,3 @@
-import { User } from '@/models/User';
-
 import UserAvatar0 from '@/assets/images/avatars/users/user0.png';
 import UserAvatar1 from '@/assets/images/avatars/users/user1.png';
 import UserAvatar2 from '@/assets/images/avatars/users/user2.png';
@@ -10,6 +8,7 @@ import UserAvatar6 from '@/assets/images/avatars/users/user6.png';
 import UserAvatar7 from '@/assets/images/avatars/users/user7.png';
 import UserAvatar8 from '@/assets/images/avatars/users/user8.png';
 import UserAvatar9 from '@/assets/images/avatars/users/user9.png';
+import { User } from '@/models/User';
 
 export const userList: User[] = [
   {

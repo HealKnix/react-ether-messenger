@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './Friends.scss';
+
+import { FC } from 'react';
 
 const Friends: FC = () => {
   return (

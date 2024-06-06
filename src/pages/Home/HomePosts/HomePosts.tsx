@@ -1,13 +1,13 @@
-import AvatarText from '@/components/AvatarText/AvatarText';
+import './HomePosts.scss';
 
-import LikeSVG from '@/components/SVG/LikeSVG';
-import CommentSVG from '@/components/SVG/CommentSVG';
 import { FC } from 'react';
 
-import './HomePosts.scss';
-import { getPastTimeString } from '@/utils/getPastTimeString';
+import AvatarText from '@/components/AvatarText/AvatarText';
 import Button from '@/components/Button/Button';
+import CommentSVG from '@/components/SVG/CommentSVG';
+import LikeSVG from '@/components/SVG/LikeSVG';
 import { useFetchPosts } from '@/hooks/api/useFetchPosts';
+import { getPastTimeString } from '@/utils/getPastTimeString';
 
 const HomePosts: FC = () => {
   const posts = useFetchPosts();

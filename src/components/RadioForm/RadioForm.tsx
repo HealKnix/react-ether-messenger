@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './RadioForm.scss';
+
+import { FC } from 'react';
 
 export interface RadioFormValue {
   name: string;

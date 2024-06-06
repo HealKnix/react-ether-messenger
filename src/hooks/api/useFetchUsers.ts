@@ -1,6 +1,7 @@
-import { User } from '@/models/User';
-import { userList } from '@/models/mock/user';
 import { useMemo, useState } from 'react';
+
+import { userList } from '@/models/mock/user';
+import { User } from '@/models/User';
 
 export const useFetchUsers = () => {
   const [users, setUsers] = useState<User[]>([]);

@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './Input.scss';
+
+import { FC } from 'react';
 
 interface ButtonProps {
   id?: string;

@@ -1,6 +1,7 @@
+import { useMemo, useState } from 'react';
+
 import { Conversation } from '@/models/Conversation';
 import { conversationList } from '@/models/mock/conversation';
-import { useMemo, useState } from 'react';
 
 export const useFetchConversations = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);

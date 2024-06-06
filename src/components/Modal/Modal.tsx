@@ -1,14 +1,12 @@
+import './Modal.scss';
+
 import { FC, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import Button from '@/components/Button/Button';
-
 import CrossSVG from '@/assets/cross.svg';
-
-import { useModalStore } from '@/store/useModalStore';
+import Button from '@/components/Button/Button';
 import { useAuthStore } from '@/store/useAuthStore';
-
-import './Modal.scss';
+import { useModalStore } from '@/store/useModalStore';
 
 const Modal: FC = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);

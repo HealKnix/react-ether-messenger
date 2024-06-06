@@ -1,6 +1,7 @@
-import { useAuthStore } from '@/store/useAuthStore';
 import { FC } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+
+import { useAuthStore } from '@/store/useAuthStore';
 
 interface RequireAuthProps {
   children: string | JSX.Element | JSX.Element[];

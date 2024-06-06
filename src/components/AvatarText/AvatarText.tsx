@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './AvatarText.scss';
+
+import { FC } from 'react';
 
 interface AvatarTextProps {
   img: string;

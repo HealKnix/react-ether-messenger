@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './Card.scss';
+
+import { FC } from 'react';
 
 interface CardProps {
   title: string;

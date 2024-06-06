@@ -1,8 +1,8 @@
-import { Post } from '@/models/Post';
-import { userList } from './user';
-
 import Post1 from '@/assets/images/posts/post1.png';
 import Post2 from '@/assets/images/posts/post2.png';
+import { Post } from '@/models/Post';
+
+import { userList } from './user';
 
 export const postList: Post[] = [
   {

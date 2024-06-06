@@ -1,15 +1,15 @@
-import { FC } from 'react';
+import './Messages.scss';
 
-import Input from '@/components/Input/Input';
+import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
+
 import AvatarText from '@/components/AvatarText/AvatarText';
+import Input from '@/components/Input/Input';
+import { useFetchConversations } from '@/hooks/api/useFetchConversations';
+import { useFetchPeers } from '@/hooks/api/useFetchPeers';
+import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 
 import MessageContent from './MessageContent/MessageContent';
-
-import './Messages.scss';
-import { NavLink } from 'react-router-dom';
-import { useFetchUsers } from '@/hooks/api/useFetchUsers';
-import { useFetchPeers } from '@/hooks/api/useFetchPeers';
-import { useFetchConversations } from '@/hooks/api/useFetchConversations';
 
 const Messages: FC = () => {
   const { conversations, updateConversationLastMessageByPeerId } =

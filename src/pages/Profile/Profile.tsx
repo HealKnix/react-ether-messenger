@@ -1,13 +1,14 @@
+import './Profile.scss';
+
 import { FC } from 'react';
-import { useAuthStore } from '@/store/useAuthStore';
+
 import Button from '@/components/Button/Button';
 import Input from '@/components/Input/Input';
+import RadioForm from '@/components/RadioForm/RadioForm';
 import TextArea from '@/components/TextArea/TextArea';
 import { useAccentColorTheme } from '@/store/useAccentColorTheme';
-import RadioForm from '@/components/RadioForm/RadioForm';
+import { useAuthStore } from '@/store/useAuthStore';
 import { useModalStore } from '@/store/useModalStore';
-
-import './Profile.scss';
 
 const Profile: FC = () => {
   const authStore = useAuthStore();

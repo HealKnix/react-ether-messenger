@@ -1,25 +1,24 @@
-import { FC } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import './App.scss';
 
-import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
+import { FC } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 import MobileSidebarMenu from '@/components/SidebarMenu/MobileSidebarMenu/MobileSidebarMenu';
+import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
+import RequireAuth from '@/hoc/RequireAuth';
+import { useInitializeAuth } from '@/hooks/useInitializeAuth';
+import { useResolution } from '@/hooks/useResolution';
 import LogIn from '@/pages/LogIn/LogIn';
 import SignUp from '@/pages/SignUp/SignUp';
 
-import { useInitializeAuth } from '@/hooks/useInitializeAuth';
-
-import { useResolution } from '@/hooks/useResolution';
-
-import './App.scss';
-import Home from '../Home/Home';
-import Profile from '../Profile/Profile';
 import Friends from '../Friends/Friends';
-import Messages from '../Messages/Messages';
-import Search from '../Search/Search';
-import Notifications from '../Notifications/Notifications';
-import SavedPosts from '../SavedPosts/SavedPosts';
+import Home from '../Home/Home';
 import MessageContent from '../Messages/MessageContent/MessageContent';
-import RequireAuth from '@/hoc/RequireAuth';
+import Messages from '../Messages/Messages';
+import Notifications from '../Notifications/Notifications';
+import Profile from '../Profile/Profile';
+import SavedPosts from '../SavedPosts/SavedPosts';
+import Search from '../Search/Search';
 
 const App: FC = () => {
   const { isAuthenticated, loading } = useInitializeAuth();

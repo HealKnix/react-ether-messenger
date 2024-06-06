@@ -1,16 +1,17 @@
+import './MessageContent.scss';
+
+import { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import AvatarText from '@/components/AvatarText/AvatarText';
 import Input from '@/components/Input/Input';
 import { useFetchMessages } from '@/hooks/api/useFetchMessages';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { Message } from '@/models/Message';
+import { Peer } from '@/models/Peer';
 import { User } from '@/models/User';
 import { useAuthStore } from '@/store/useAuthStore';
-import { FC, useEffect, useMemo, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Peer } from '@/models/Peer';
-
-import './MessageContent.scss';
 
 interface MessageContentProps {
   updateLastMessage?: (peerId: number, message: string) => void;

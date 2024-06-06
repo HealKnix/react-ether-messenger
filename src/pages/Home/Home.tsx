@@ -1,8 +1,10 @@
-import { FC } from 'react';
-import HomeNavigation from './HomeNavigation/HomeNavigation';
-import HomeAsideContent from './HomeAsideContent/HomeAsideContent';
-import HomePosts from './HomePosts/HomePosts';
 import './Home.scss';
+
+import { FC } from 'react';
+
+import HomeAsideContent from './HomeAsideContent/HomeAsideContent';
+import HomeNavigation from './HomeNavigation/HomeNavigation';
+import HomePosts from './HomePosts/HomePosts';
 
 const Home: FC = () => {
   return (

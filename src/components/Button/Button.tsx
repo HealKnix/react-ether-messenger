@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import './Button.scss';
+
+import { FC } from 'react';
 
 interface ButtonProps {
   color?: 'accent' | 'light' | 'black' | 'red' | 'white';

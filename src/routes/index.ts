@@ -1,18 +1,19 @@
-import Home from '@/pages/Home/Home';
 import { FC } from 'react';
-import Profile from '@/pages/Profile/Profile';
-import Messages from '@/pages/Messages/Messages';
-import Search from '@/pages/Search/Search';
-import Notifications from '@/pages/Notifications/Notifications';
-import SavedPosts from '@/pages/SavedPosts/SavedPosts';
-import HomeSVG from '@/components/SVG/HomeSVG';
-import ProfileSVG from '@/components/SVG/ProfileSVG';
-import MessageSVG from '@/components/SVG/MessageSVG';
-import SearchSVG from '@/components/SVG/SearchSVG';
+
 import BellSVG from '@/components/SVG/BellSVG';
 import BookmarkSVG from '@/components/SVG/BookmarkSVG';
 import FriendsSVG from '@/components/SVG/FriendsSVG';
+import HomeSVG from '@/components/SVG/HomeSVG';
+import MessageSVG from '@/components/SVG/MessageSVG';
+import ProfileSVG from '@/components/SVG/ProfileSVG';
+import SearchSVG from '@/components/SVG/SearchSVG';
 import Friends from '@/pages/Friends/Friends';
+import Home from '@/pages/Home/Home';
+import Messages from '@/pages/Messages/Messages';
+import Notifications from '@/pages/Notifications/Notifications';
+import Profile from '@/pages/Profile/Profile';
+import SavedPosts from '@/pages/SavedPosts/SavedPosts';
+import Search from '@/pages/Search/Search';
 
 interface Router {
   path: string;

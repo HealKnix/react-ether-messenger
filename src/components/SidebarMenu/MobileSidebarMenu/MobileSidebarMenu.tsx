@@ -1,12 +1,13 @@
+import './MobileSidebarMenu.scss';
+
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import HomeSVG from '@/components/SVG/HomeSVG';
+
+import BellSVG from '@/components/SVG/BellSVG';
 import FriendsSVG from '@/components/SVG/FriendsSVG';
+import HomeSVG from '@/components/SVG/HomeSVG';
 import MessageSVG from '@/components/SVG/MessageSVG';
 import { useAuthStore } from '@/store/useAuthStore';
-import BellSVG from '@/components/SVG/BellSVG';
-
-import './MobileSidebarMenu.scss';
 
 const MobileSidebarMenu: FC = () => {
   const location = useLocation();

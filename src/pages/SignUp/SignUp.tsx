@@ -1,17 +1,15 @@
+import './SignUp.scss';
+
 import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Input from '@/components/Input/Input';
-import Button from '@/components/Button/Button';
-
 import GoogleSVG from '@/assets/google.svg';
-
-import { useAuthStore } from '@/store/useAuthStore';
-import { userList } from '@/models/mock/user';
-
-import './SignUp.scss';
+import Button from '@/components/Button/Button';
+import Input from '@/components/Input/Input';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
+import { userList } from '@/models/mock/user';
 import { User } from '@/models/User';
+import { useAuthStore } from '@/store/useAuthStore';
 
 const SignUp: FC = () => {
   const navigate = useNavigate();
