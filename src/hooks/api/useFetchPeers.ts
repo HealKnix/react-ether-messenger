@@ -1,16 +1,16 @@
 import { Peer } from '@/models/Peer';
 import { peerList } from '@/models/mock/peer';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export const useFetchPeers = () => {
   const [peers, setPeers] = useState<Peer[]>([]);
 
-  useEffect(() => {
+  useMemo(() => {
     setPeers(() => peerList);
   }, []);
 
   const addPeer = (peer: Peer) => {
-    peerList.push(peer);
+    setPeers((peers) => [...peers, peer]);
   };
 
   const getPeerById = (id: number) => {

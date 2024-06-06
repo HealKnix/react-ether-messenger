@@ -1,9 +1,11 @@
 import AvatarText from '@/components/AvatarText/AvatarText';
 import Input from '@/components/Input/Input';
+import { useFetchConversations } from '@/hooks/api/useFetchConversations';
 import { useFetchMessages } from '@/hooks/api/useFetchMessages';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { Message } from '@/models/Message';
+import { User } from '@/models/User';
 import { useAuthStore } from '@/store/useAuthStore';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -19,63 +21,83 @@ const MessageContent: FC = () => {
 
   const authStore = useAuthStore();
   const { messages, addMessage, getMessagesByPeerId } = useFetchMessages();
+  const { updateConversationLastMessageByPeerId } = useFetchConversations();
   const { peers, addPeer } = useFetchPeers();
   const { getUserById } = useFetchUsers();
 
-  const currUser = useRef(getUserById(paramsQuery.id) ?? null);
-  const userConversation = useRef(getUserById(paramsQuery.id ?? null));
-
-  const [messagesConversation, setMessagesConversation] = useState(
-    getMessagesByPeerId(paramsQuery.id ?? []),
+  const [userConversation, setUserConversation] = useState(
+    getUserById(paramsQuery.id ?? null),
   );
+
+  const [messagesByDifferentUsers, setMessagesByDifferentUsers] = useState<
+    Message[][]
+  >([]);
 
   const inputSendMessage = useRef<HTMLInputElement>(null);
 
-  const messagesByDifferentUsers = useRef<Message[][]>([]);
+  const sendMessageHandler = (text: string) => {
+    addPeer({
+      id: peers.length,
+      peer_id: paramsQuery.id,
+      type: 'user',
+      message_id: messages?.length ?? -1,
+    });
+    addMessage({
+      id: messages?.length ?? -1,
+      text: text,
+      date: new Date(),
+      user: authStore.user,
+      peer_id: paramsQuery.id,
+    });
+    updateConversationLastMessageByPeerId(paramsQuery.id, text);
+  };
 
   useEffect(() => {
-    setMessagesConversation(getMessagesByPeerId(paramsQuery.id));
-  }, [paramsQuery, messages, messagesByDifferentUsers]);
+    setMessagesByDifferentUsers([]);
+    setUserConversation(getUserById(paramsQuery.id));
 
-  useEffect(() => {
-    messagesByDifferentUsers.current = [];
+    let currUserMessage: User | null = null;
 
-    userConversation.current = getUserById(paramsQuery.id);
+    const messagesConversation = getMessagesByPeerId(paramsQuery.id);
 
     messagesConversation.forEach((message) => {
-      const shouldRenderDiv: boolean =
-        message.user?.id !== currUser.current?.id;
+      const isOwnMessage: boolean = message.user?.id === currUserMessage?.id;
 
-      if (shouldRenderDiv) {
-        currUser.current = message.user;
-        messagesByDifferentUsers.current.push([]);
+      if (!isOwnMessage) {
+        currUserMessage = message.user;
+        setMessagesByDifferentUsers((messagesByDifferentUsers) => [
+          ...messagesByDifferentUsers,
+          [],
+        ]);
       }
 
-      messagesByDifferentUsers.current[
-        messagesByDifferentUsers.current.length - 1
-      ]?.push(message);
+      setMessagesByDifferentUsers((messagesByDifferentUsers) => {
+        messagesByDifferentUsers[messagesByDifferentUsers.length - 1]?.push(
+          message,
+        );
+        return messagesByDifferentUsers;
+      });
     });
-  }, [getUserById, messagesConversation, paramsQuery, messages]);
+  }, [id]);
 
-  if (!userConversation.current)
-    return <center>Выберите чат для общения</center>;
+  if (!userConversation) return <center>Выберите чат для общения</center>;
 
   return (
     <>
       <div className="messages-message-header">
         <AvatarText
-          img={`${userConversation.current?.avatar}`}
-          name={`${userConversation.current?.firstName} ${userConversation.current?.lastName}`}
-          description={`Был${userConversation.current?.sex === 'f' ? 'а' : ''} актив${userConversation.current?.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
+          img={`${userConversation.avatar}`}
+          name={`${userConversation.firstName} ${userConversation.lastName}`}
+          description={`Был${userConversation.sex === 'f' ? 'а' : ''} актив${userConversation.sex === 'f' ? 'на' : 'ен'} 20 мин. назад`}
         />
       </div>
       <div className="messages-message-messages">
-        {messagesConversation.length === 0 && (
+        {messagesByDifferentUsers.length === 0 && (
           <span>У вас нет переписки с этим пользователем</span>
         )}
-        {messagesConversation.length !== 0 && (
+        {messagesByDifferentUsers.length !== 0 && (
           <>
-            {messagesByDifferentUsers.current.map((messageArray, index) => {
+            {messagesByDifferentUsers.map((messageArray, index) => {
               return (
                 <div key={index}>
                   {messageArray.map((message) => {
@@ -85,7 +107,7 @@ const MessageContent: FC = () => {
                     return (
                       <span
                         className={`bubble-message${isOwnMessage ? ' own' : ''}`}
-                        key={message.id}
+                        key={message.id + 25252}
                       >
                         {message.text}
                         <span className="bubble-message-time">
@@ -110,19 +132,7 @@ const MessageContent: FC = () => {
           forwardRef={inputSendMessage}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              addPeer({
-                id: peers.length,
-                peer_id: paramsQuery.id,
-                type: 'user',
-                message_id: messages?.length ?? -1,
-              });
-              addMessage({
-                id: messages?.length ?? -1,
-                text: e.currentTarget.value,
-                date: new Date(),
-                user: authStore.user,
-                peer_id: paramsQuery.id,
-              });
+              sendMessageHandler(e.currentTarget.value);
               e.currentTarget.value = '';
             }
           }}

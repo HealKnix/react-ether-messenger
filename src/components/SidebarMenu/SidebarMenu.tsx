@@ -23,7 +23,7 @@ const SidebarMenu: FC = () => {
                   <Link
                     to={route.path}
                     className={
-                      route.path === location.pathname
+                      location.pathname.includes(route.path)
                         ? `active nav-${route.name} nav`
                         : `nav-${route.name} nav`
                     }

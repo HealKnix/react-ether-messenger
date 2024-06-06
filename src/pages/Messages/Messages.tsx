@@ -1,22 +1,23 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import Input from '@/components/Input/Input';
 import AvatarText from '@/components/AvatarText/AvatarText';
 
-import { conversationList } from '@/models/mock/conversation';
 import MessageContent from './MessageContent/MessageContent';
-import { User } from '@/models/User';
 
 import './Messages.scss';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useFetchUsers } from '@/hooks/api/useFetchUsers';
 import { useFetchPeers } from '@/hooks/api/useFetchPeers';
+import { useFetchConversations } from '@/hooks/api/useFetchConversations';
 
 const Messages: FC = () => {
+  const location = useLocation();
+
   const navigate = useNavigate();
+  const { conversations } = useFetchConversations();
   const { getUserById } = useFetchUsers();
   const { getPeerById } = useFetchPeers();
-  const [user, setUser] = useState<User | null>(null);
 
   return (
     <>
@@ -26,20 +27,22 @@ const Messages: FC = () => {
             <Input placeholder="Искать чат" />
           </div>
           <div className="messages-user-list">
-            {conversationList.map((conversation) => {
+            {conversations.map((conversation) => {
               const peer = getPeerById(conversation.peer_id);
               if (peer?.type === 'user') {
                 const userConversation =
                   getUserById(conversation.peer_id) ?? null;
+
                 return (
                   <AvatarText
                     key={conversation.id}
-                    selected={user?.id === userConversation?.id}
+                    selected={location.pathname.includes(
+                      `/conv/${conversation.peer_id}`,
+                    )}
                     img={`${userConversation?.avatar}`}
                     name={`${userConversation?.firstName} ${userConversation?.lastName}`}
                     description={conversation.last_message}
                     onClick={() => {
-                      setUser(userConversation);
                       navigate(`conv/${conversation.peer_id}`, {
                         replace: true,
                       });

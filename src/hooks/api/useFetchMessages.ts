@@ -1,16 +1,16 @@
 import { Message } from '@/models/Message';
 import { messageList } from '@/models/mock/message';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export const useFetchMessages = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
-  useEffect(() => {
+  useMemo(() => {
     setMessages(() => messageList);
   }, []);
 
   const addMessage = (message: Message) => {
-    messageList.push(message);
+    setMessages((messages) => [...messages, message]);
   };
 
   const getMessagesByPeerId = (id: number) => {

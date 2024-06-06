@@ -1,21 +1,40 @@
 import { Conversation } from '@/models/Conversation';
 import { conversationList } from '@/models/mock/conversation';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
-export const useFetchMessages = () => {
+export const useFetchConversations = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);
 
-  useEffect(() => {
+  useMemo(() => {
     setConversations(() => conversationList);
   }, []);
 
-  const addConversation = (Conversation: Conversation) => {
-    conversationList.push(Conversation);
+  const addConversation = (conversation: Conversation) => {
+    setConversations((conversations) => [...conversations, conversation]);
   };
 
-  const getConversationById = (id: number) => {
-    return conversations.filter((conversation) => conversation.id === id);
+  const getConversationByPeerId = (peerId: number) => {
+    return conversations.find((conversation) => conversation.id === peerId);
   };
 
-  return { conversations, addConversation, getConversationById };
+  const updateConversationLastMessageByPeerId = (
+    peerId: number,
+    lastMessage: string,
+  ) => {
+    setConversations((conversations) =>
+      conversations.map((conversation) => {
+        if (conversation.peer_id === peerId) {
+          conversation.last_message = lastMessage;
+        }
+        return conversation;
+      }),
+    );
+  };
+
+  return {
+    conversations,
+    addConversation,
+    getConversationByPeerId,
+    updateConversationLastMessageByPeerId,
+  };
 };
